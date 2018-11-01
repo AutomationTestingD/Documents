@@ -1,0 +1,195 @@
+What is Maven:
+
+Maven is a project management tool that is based on POM (project object model). It is used for projects build, dependency and documentation.
+
+It simplifies the build process.
+
+
+
+
+
+Why Maven Required
+
+Maven project eliminates the Adding set of Jars in each project.
+
+It Creates write Project Structure.
+
+Building and Deploying the project is very simple.
+
+
+
+
+
+What is Build Tool
+
+A build tool takes care of everything for building a process. It does following:
+
+Generates source code 
+
+Compiles source code
+
+Packages compiled code into JAR of ZIP file
+
+Installs the packaged code in local repository, server repository, or central repository
+
+
+
+
+
+How to install Maven in Window machine
+
+Download maven and extract it
+
+Add JAVA_HOME and MAVEN_HOME in environment variable
+
+Add maven path in environment variable
+
+Verify Maven
+
+apache-maven-3.5.0-bin.zip
+
+
+
+
+
+Verify maven
+
+To verify whether maven is installed or not, open the command prompt and write:
+
+mvn −version
+
+
+
+Maven home: E:\apache-maven\apache-maven-3.3.9\bin
+
+Java version: 1.8.0_102, vendor: Oracle Corporation
+
+Java home: C:\Program Files\Java\jdk1.8.0_144\bin
+
+
+
+Maven Repository
+
+There are 3 types of maven repository:
+
+Local Repository
+
+Central Repository
+
+Remote Repository
+
+Maven searches for the dependencies in the following order:
+
+Local repository then Central repository then Remote repository.
+
+
+
+Local Repository: Means .m2 folder in your system
+
+Central Repository: Maven central repository is located on the web. It has been created by the apache maven community itself
+
+Remote Repository: Company Specific Library or Custom Library
+
+
+
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>com</groupId>
+
+<artifactId>Cucumber</artifactId>
+
+<version>0.0.1</version>
+
+<packaging>jar</packaging>
+
+
+
+  <name>selenium</name>
+
+  <url>http://maven.apache.org</url>
+
+
+
+<dependency>
+
+<groupId>org.seleniumhq.selenium</groupId>
+
+<artifactId>selenium-java</artifactId>
+
+<version>3.5.1</version>
+
+<scope>test</scope>
+
+</dependency>
+
+
+
+</dependencies>
+
+</project>
+
+
+
+
+
+Project: It is the root element of pom.xml file
+
+Model Version: It is the sub element of project. It specifies the model Version. It should be set to 4.0.0
+
+Group Id: will identify your project uniquely across all projects (com.test.selenium)
+
+Artifact Id: project name
+
+Packaging: defines packaging type such as jar, war etc.
+
+Dependencies: defines dependencies for this project.
+
+Dependency: defines a dependency. It is used inside dependencies.
+
+Scope: defines scope for this maven project. It can be compile, provided, runtime, test and system.
+
+
+
+
+
+Maven Life Cycle
+
+
+
+validate - validate the project is correct and all necessary information is available
+
+compile - compile the source code of the project
+
+test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+
+package - take the compiled code and package it in its distributable format, such as a JAR.
+
+verify - run any checks on results of integration tests to ensure quality criteria are met
+
+install - install the package into the local repository, for use as a dependency in other projects locally
+
+deploy - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+
+
+mvn deploy:deploy-file -DgroupId=<group-id> \
+
+-DartifactId=<artifact-id> \
+
+-Dversion=<version> \
+
+-Dpackaging=<type-of-packaging> \
+
+-Dfile=<path-to-file> \
+
+-DrepositoryId=<id-to-map-on-server-section-of-settings.xml> \
+
+-Durl=<url-of-the-repository-to-deploy>
