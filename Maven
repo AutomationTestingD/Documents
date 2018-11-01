@@ -1,0 +1,352 @@
+Apache Maven: https://maven.apache.org/index.html
+
+
+
+Maven:
+
+Apache Maven is a software project management and comprehension tool. 
+
+Based on the concept of a project object model (POM), Maven can manage a project's build, 
+
+reporting and documentation from a central piece of information. 
+
+
+
+pom.xml :THis is a xml file and residence in root folder which contains usually below
+
+
+<Prject info>
+
+<plug ins>
+
+<properties>
+
+<dependencies>
+
+<build>
+
+
+
+Also contains below
+
+
+
+1.Project
+
+2.GroupId - com.wipro
+
+3.ArtifactId - demo (prject name)
+
+4.package - com.wipro.demo.web
+
+
+
+
+
+Updating Dependency in pom.xml file, respective jar files will be added to the project.
+
+
+
+Example:
+
+<dependencies>
+
+ </dependency>
+
+    <dependency>
+
+    <groupId>org.seleniumhq.selenium</groupId>
+
+    <artifactId>selenium-java</artifactId>
+
+    <version>3.14.0</version>
+
+<dependencies>
+
+
+
+
+
+Maven Repository:
+
+
+
+1.Local Repository
+
+  -> Searches here first.
+
+  -> .m2 folder contans all downloaded jars from Centralised repository
+
+2.Remote/Centralised Repository (Downloads from here if not present in local repository)
+
+
+
+
+
+
+
+
+
+Installation:
+
+
+
+Prerquisits: JDK 1.7 and Maven 3.2.2
+
+
+
+ -> JAVA_HOME (JDK path), M2_HOME (Maven path), MAVEN_HOME (Maven path) and PATH (%M2_HOME%\bin path) environment variables need to be set.
+
+
+
+Reference: https://www.mkyong.com/maven/how-to-install-maven-in-windows/
+
+
+
+Verification: 
+
+C:\Users\mkyong>mvn -version
+
+Apache Maven 3.2.2 (45f7c06d68e745d05611f7fd14efb6594181933e; 2014-06-17T21:51:42+08:00)
+
+Maven home: C:\Program Files\Apache\maven
+
+Java version: 1.7.0_65, vendor: Oracle Corporation
+
+Java home: C:\Program Files\Java\jdk1.7.0_65\jre
+
+Default locale: en_US, platform encoding: Cp1252
+
+OS name: "windows 8.1", version: "6.3", arch: "amd64", family: "windows"
+
+
+
+Download Maven plugin from eclips if not available by deafult.
+
+Eclips -> Help -> Eclipse Marketplace -> search Maven Itegration for Eclipse (Luna) 1.5.0
+
+
+
+
+
+
+
+
+
+Maven Life Cycle:
+
+
+
+1.Maven Compile :Compiles all java classes/code in Maven project using Maven Compiler Plugin
+
+2.Maven Test : Tests TestNG/Junit Test cases (Unit/Integration/Functional) using Maven Surefire plugin
+
+3.Maven Resource - Creates .jar(Java ARchive)/.war (Web application ARchive)/.EAR(enterprise archive)files Using Maven Resources Plugin
+
+
+
+Maven Project Structure:
+
+
+
+Project1
+
+ - src
+
+   - main
+
+    - java
+
+    - resources
+
+    - webapp
+
+   - test
+
+    - java
+
+    - resources
+
+ - target
+
+ - JRE System Library
+
+ - Maven Dependencies
+
+ - pom.xml (Project object model)
+
+
+
+
+
+Maven commands:
+
+
+
+1. mvn clean install : Maven life cycle will be executed and then tests will be executed. Finally .jar file will be executed
+
+
+
+2. mvn test     : Runs the tests against the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed..
+
+
+
+3. mvn clean : clean project
+
+ 
+
+4. mvn compile: Compiles the source code of the project.
+
+5. mvn validate: Validates that the project is correct and all necessary information is available. This also makes sure the dependencies are downloaded.
+
+
+
+5. command1: mvn package -DskipTests : Skips tests from 'mvn clean install' execucution.
+
+   command2: mvn package -Dmaven.test.skip=true  : Skips tests from 'mvn clean install' execucution.
+
+   
+
+   For above command2, need to set below property in pom.xml
+
+
+
+ <properties>
+
+   <maven.test.skip>true</maven.test.skip>
+
+ </properties>
+
+
+
+6. mvn package: Packs the compiled code in its distributable format, such as a JAR.
+
+7. mvn deploy: Copies the final package to the remote repository for sharing with other developers and projects.
+
+
+
+
+
+
+
+Run all classes in Package:
+
+
+
+for executing all the classes in main package, we need to create on source folder "src/main/resources" and create testng.xml file
+
+testng.xml file shoudl be updated as below.
+
+
+
+   <suite name="Test Maven Suite">
+
+      <test name="Test Maven Testing">
+
+         <packages>
+
+            <package name="packagename of all classes.*"/>
+
+         </packages>
+
+      </test>
+
+    </suite>
+
+
+
+Finally add compile, surefire and Resources plugins to pom.xml file. (<build> ..... </build>)
+
+
+
+
+
+
+
+Symilar build automation tools: ANT/Gradle
+
+
+
+
+
+
+
+Possible errors:
+
+
+
+Issue1: comple error
+
+
+
+[ERROR] Source option 5 is no longer supported. Use 6 or later.
+
+[ERROR] Target option 1.5 is no longer supported. Use 1.6 or later.
+
+
+
+Sol: add below property in pom.xml file
+
+
+
+ <properties>
+
+    <maven.compiler.source>6</maven.compiler.source>
+
+    <maven.compiler.target>1.6</maven.compiler.target>
+
+  </properties>
+
+ 
+
+
+
+
+
+
+
+Issue2: error while running .jar file
+
+
+
+Error: no main manifest attribute, in filename.jar
+
+
+
+Sol: add below property in pom.xml file and run "mvn clean install" command and try running .jar file again by redercting to target folder
+
+
+
+<build>
+
+	<plugins>
+
+		<plugin>
+
+			<!-- Build an executable JAR -->
+
+			<groupId>org.apache.maven.plugins</groupId>
+
+			<artifactId>maven-jar-plugin</artifactId>
+
+			<version>2.4</version>
+
+			<configuration>
+
+				<archive>
+
+					<manifest>
+
+						<mainClass>com.mycompany.app.App</mainClass>
+
+					</manifest>
+
+				</archive>
+
+			</configuration>
+
+		</plugin>
+
+	</plugins>
+
+</build>
