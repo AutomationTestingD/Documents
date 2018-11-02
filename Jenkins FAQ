@@ -50,7 +50,7 @@ Start Jenkins
 Jenkins saves all the setting, build artifacts and logs in its home directory, to create a back-up of your Jenkins setup, just copy this directory. You can also copy a job directory to clone or replicate a job or rename the directory.
 
 10) Explain how you can clone a Git repository via Jenkins?
-To clone a Git repository via Jenkins, you have to enter the e-mail and user name for your Jenkins system.  For that, you have to switch into your job directory and execute the ìgit configî command.
+To clone a Git repository via Jenkins, you have to enter the e-mail and user name for your Jenkins system.  For that, you have to switch into your job directory and execute the ‚Äúgit config‚Äù command.
 
 11) Explain how you can set up Jenkins job?
 To create a project that is handled via jobs in Jenkins.  Select New item from the menu, once this done enter a name for the job and select free-style job. Then click OK to create new job in Jenkins.  The next page enables you to configure your job.
@@ -71,7 +71,7 @@ Jenkins Interview Questions # 3) What is Maven and what is Jenkins?
 Answer # Maven is a build tool, in short a successor of ant. It helps in build and version control. However, Jenkins is continuous integration system, where in maven is used for build. Jenkins can be used to automate the deployment process.
  
 Jenkins Interview Question # 4) What is the difference between Hudson and Jenkins?
-Answer # Jenkins is the new Hudson. It really is more like a rename, not a fork, since the whole development community moved to Jenkins. (Oracle is left sitting in a corner holding their old ball ìHudsonì, but itís just a soul-less project now.). In a nutshell Jenkins CI is the leading open-source continuous integration server.
+Answer # Jenkins is the new Hudson. It really is more like a rename, not a fork, since the whole development community moved to Jenkins. (Oracle is left sitting in a corner holding their old ball ‚ÄúHudson‚Äú, but it‚Äôs just a soul-less project now.). In a nutshell Jenkins CI is the leading open-source continuous integration server.
  
 Jenkins Interview Questions # 5) What is meant by continuous integration in Jenkins?
 Answer # Continuous integration is a process in which all development work is integrated as early as possible. The resulting artifacts are automatically created and tested. This process allows to identify errors as early as possible. Jenkins is a popular open source tool to perform continuous integration and build automation.
@@ -103,13 +103,13 @@ Answer # The Jenkins Pipeline plugin is a game changer for Jenkins users. Based 
 Jenkins Interview Questions And Answers For Experienced
 
 Jenkins Interview Questions # 11) What is a DSL Jenkins?
-Answer # The Jenkins ìJob DSL / Pluginî is made up of two parts: The Domain Specific Language (DSL) itself that allows users to describe jobs using a Groovy-based language, and a Jenkins plugin which manages the scripts and the updating of the Jenkins jobs which are created and maintained as a result.
+Answer # The Jenkins ‚ÄúJob DSL / Plugin‚Äù is made up of two parts: The Domain Specific Language (DSL) itself that allows users to describe jobs using a Groovy-based language, and a Jenkins plugin which manages the scripts and the updating of the Jenkins jobs which are created and maintained as a result.
  
 Jenkins Interview Questions For Devops # 12) What is continuous integration and deployment?
 Answer # Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early.
  
 Jenkins Real Time Interview Questions # 13) What is the tool used for provisioning and configuration?
-Answer # Ansible is an agent-less configuration management as well as orchestration tool. In Ansible, the configuration modules are called ìPlaybooksî. Like other tools, Ansible can be used for cloud provisioning.
+Answer # Ansible is an agent-less configuration management as well as orchestration tool. In Ansible, the configuration modules are called ‚ÄúPlaybooks‚Äù. Like other tools, Ansible can be used for cloud provisioning.
  
 Jenkins Questions And Answers # 14) What is the difference between Maven, Ant and Jenkins?
 Answer # Maven and ANT are build tool but main difference is that maven also provides dependency management, standard project layout and project management. On difference between Maven, ANT and Jenkins, later is a continuous integration tool which is much more than build tool.
@@ -119,8 +119,8 @@ Answer # Jenkins supports version control tools, including AccuRev, CVS, Subvers
 Jenkins Interview Questions For Testers
 
 Devops Interview Questions Jenkins # 16) How schedule a build in Jenkins?
-Answer # In Jenkins, under the job configuration we can define various build triggers. Simple find the ëBuild Triggersí section, and check the ë Build Periodicallyí checkbox. With the periodically build you can schedule the build definition by the date or day of the week and the time to execute the build.
-The format of the ëScheduleí textbox is as follows:
+Answer # In Jenkins, under the job configuration we can define various build triggers. Simple find the ‚ÄòBuild Triggers‚Äô section, and check the ‚Äò Build Periodically‚Äô checkbox. With the periodically build you can schedule the build definition by the date or day of the week and the time to execute the build.
+The format of the ‚ÄòSchedule‚Äô textbox is as follows:
 MINUTE (0-59), HOUR (0-23), DAY (1-31), MONTH (1-12), DAY OF THE WEEK (0-7)
  
 Continuous Integration Interview Questions # 17) Why do we use Pipelines in Jenkins?
@@ -142,7 +142,7 @@ Interview Questions on Jenkins # 19) How do you create Multibranch Pipeline in J
 Answer # The Multibranch Pipeline project type enables you to implement different Jenkinsfiles for different branches of the same project. In a Multibranch Pipeline project, Jenkins automatically discovers, manages and executes Pipelines for branches which contain a Jenkinsfile in source control.
  
 Devops Jenkins Interview Questions # 20) What is blue ocean in Jenkins?
-Answer # Blue Ocean is a project that rethinks the user experience of Jenkins, modelling and presenting the process of software delivery by surfacing information thatís important to development teams with as few clicks as possible, while still staying true to the extensibility that is core to Jenkins.
+Answer # Blue Ocean is a project that rethinks the user experience of Jenkins, modelling and presenting the process of software delivery by surfacing information that‚Äôs important to development teams with as few clicks as possible, while still staying true to the extensibility that is core to Jenkins.
 Jenkins Interview Questions For Automation Testers
  
 Jenkins Interview Questions For DevOps # 21) What are the important plugins in Jenkins?
@@ -156,10 +156,10 @@ Join
 Green Balls
  
 Interview Questions on Maven and Jenkins # 22) What are Jobs in Jenkins?
-Answer # Jenkins can be used to perform the typical build server work, such as doing continuous/official/nightly builds, run tests, or perform some repetitive batch tasks. This is called ìfree-style software projectî in Jenkins.
+Answer # Jenkins can be used to perform the typical build server work, such as doing continuous/official/nightly builds, run tests, or perform some repetitive batch tasks. This is called ‚Äúfree-style software project‚Äù in Jenkins.
  
 Jenkins Advanced Interview Questions # 23) How do you create a Job in Jenkins?
-Answer # Go to Jenkins top page, select ìNew Jobî, then choose ìBuild a free-style software projectî. This job type consists of the following elements:
+Answer # Go to Jenkins top page, select ‚ÄúNew Job‚Äù, then choose ‚ÄúBuild a free-style software project‚Äù. This job type consists of the following elements:
 optional SCM, such as CVS or Subversion where your source code resides.
 optional triggers to control when Jenkins will perform builds.
 some sort of build script that performs the build (ant, maven, shell script, batch file, etc.) where the real work happens optional steps to collect information out of the build, such as archiving the artifacts and/or recording javadoc and test results.
@@ -174,60 +174,60 @@ Answer # To create a backup, all you need to do is to periodically back up your 
 Jenkins Real-Time Interview Questions
 
 26) What is the trustAnchors parameter must be non-empty error and how can you solve it?
-A) This trustAnchors parameter must be non-empty error means that the truststore you specified was not found, or couldnít be opened due to access permissions for example.
+A) This trustAnchors parameter must be non-empty error means that the truststore you specified was not found, or couldn‚Äôt be opened due to access permissions for example.
 EJP basically answered the question (and I realize this has an accepted answer) but I just dealt with this edge-case gotcha and wanted to immortalize my solution. I had the InvalidAlgorithmParameterException error on a hosted jira server that I had previously set up for SSL-only access.
 The issue was that I had set up my keystore in the PKCS#12 format, but my truststore was in the JKS format. In my case, I had edited my server.xml file to specify the keystoreType to PKCS, but did not specify the truststoreType, so it defaults to whatever the keystoreType is. Specifying the truststoreType explicitly as JKS solved it for me.
 
 27) What are the feature differences between Jenkins and Hudson?
 A) Jenkins is the recent fork by the core developers of Hudson. To understand why, you need to know the history of the project. It was originally open source and supported by Sun. Like much of what Sun did, it was fairly open, but there was a bit of benign neglect. The source, trackers, website, etc. were hosted by Sun on their relatively closed java.net platform.
-Then Oracle bought Sun. For various reasons Oracle has not been shy about leveraging what it perceives as its assets. Those include some control over the logistic platform of Hudson, and particularly control over the Hudson name. Many users and contributors werenít comfortable with that and decided to leave.
-So it comes down to what Hudson vs Jenkins offers. Both Oracleís Hudson and Jenkins have the code. Hudson has Oracle and Sonatypeís corporate support and the brand. Jenkins has most of the core developers, the community, and (so far) much more actual work.
-In fact, arguably it was Oracle who did the forking! And technically, too, thatís kinda what happened.
-Itís interesting to see what comes out of ìHudsonî though. While the ìWinston summarizes the state and rosy future of the Hudson projectî stuff they posted on the (new) Hudson website originally seemed like odd humour to me, perhaps this was a purposeful takeover, and the Sonatype guys actually have some big ideas up their sleeve. This analysis, suggesting a deliberate strategy by Oracle/Sonatype to oust Kohsuke and crew to create a more ìenterprisyî Hudson is a very interesting read!
-In any case, this brief comparison a fortnight after the splitówhile not exactly scientificóshows Jenkins to be by far more active of the two projects.
+Then Oracle bought Sun. For various reasons Oracle has not been shy about leveraging what it perceives as its assets. Those include some control over the logistic platform of Hudson, and particularly control over the Hudson name. Many users and contributors weren‚Äôt comfortable with that and decided to leave.
+So it comes down to what Hudson vs Jenkins offers. Both Oracle‚Äôs Hudson and Jenkins have the code. Hudson has Oracle and Sonatype‚Äôs corporate support and the brand. Jenkins has most of the core developers, the community, and (so far) much more actual work.
+In fact, arguably it was Oracle who did the forking! And technically, too, that‚Äôs kinda what happened.
+It‚Äôs interesting to see what comes out of ‚ÄúHudson‚Äù though. While the ‚ÄúWinston summarizes the state and rosy future of the Hudson project‚Äù stuff they posted on the (new) Hudson website originally seemed like odd humour to me, perhaps this was a purposeful takeover, and the Sonatype guys actually have some big ideas up their sleeve. This analysis, suggesting a deliberate strategy by Oracle/Sonatype to oust Kohsuke and crew to create a more ‚Äúenterprisy‚Äù Hudson is a very interesting read!
+In any case, this brief comparison a fortnight after the split‚Äîwhile not exactly scientific‚Äîshows Jenkins to be by far more active of the two projects.
 Jenkins has continued the path well-trodden by the original Hudson with frequent releases including many minor updates.
 Oracle seems to have largely delegated work on the future path for Hudson to the Sonatype team, who has performed some significant changes, especially with respect to Maven. They have jointly moved it to the Eclipse foundation.
 I would suggest that if you like the sound of:
-Less frequent releases but ones that are more heavily tested for backwards compatibility (more of an ìenterprise-styleî release cycle)
+Less frequent releases but ones that are more heavily tested for backwards compatibility (more of an ‚Äúenterprise-style‚Äù release cycle)
 A product focused primarily on strong Maven and/or Nexus integration (i.e., you have no interest in Gradle and Artifactory etc)
 Professional support offerings from Sonatype or maybe Oracle in preference to Cloudbees etc
-You donít mind having a smaller community of plugin developers etc.
+You don‚Äôt mind having a smaller community of plugin developers etc.
 , then I would suggest Hudson.
 Conversely, if you prefer:
-More frequent updates, even if they require a bit more frequent tweaking and are perhaps slightly riskier in terms of compatibility (more of a ìlatest and greatestî release cycle)
+More frequent updates, even if they require a bit more frequent tweaking and are perhaps slightly riskier in terms of compatibility (more of a ‚Äúlatest and greatest‚Äù release cycle)
 A system with more active community support for e.g., other build systems / artifact repositories
-Support offerings from the original creator et al. and/or you have no interest in professional support (e.g., youíre happy as long as you can get a fix in next weekís ìlatest and greatestî)
-A classical OSS-style witchesí brew of a development ecosystem
+Support offerings from the original creator et al. and/or you have no interest in professional support (e.g., you‚Äôre happy as long as you can get a fix in next week‚Äôs ‚Äúlatest and greatest‚Äù)
+A classical OSS-style witches‚Äô brew of a development ecosystem
 then I would suggest Jenkins.
 Jenkins CI Interview Questions
 
 28) How to trigger a build remotely from Jenkins? How to configure Git post commit hook?
 The requirement is whenever changes are made in the Git repository for a particular project it will automatically start Jenkins build for that project.
-A) As mentioned in ìPolling must die: triggering Jenkins builds from a git hookî, you can notify Jenkins of a new commit:
+A) As mentioned in ‚ÄúPolling must die: triggering Jenkins builds from a git hook‚Äù, you can notify Jenkins of a new commit:
 With the latest Git plugin 1.1.14 (that I just release now), you can now do this more >easily by simply executing the following command:
 curl http://yourserver/jenkins/git/notifyCommit?url=<URL of the Git repository>
-This will scan all the jobs thatís configured to check out the specified URL, and if they are also configured with polling, itíll immediately trigger the polling (and if that finds a change worth a build, a build will be triggered in turn.)
+This will scan all the jobs that‚Äôs configured to check out the specified URL, and if they are also configured with polling, it‚Äôll immediately trigger the polling (and if that finds a change worth a build, a build will be triggered in turn.)
 This allows a script to remain the same when jobs come and go in Jenkins.
-Or if you have multiple repositories under a single repository host application (such as Gitosis), you can share a single post-receive hook script with all the repositories. Finally, this URL doesnít require authentication even for secured Jenkins, because the server doesnít directly use anything that the client is sending. It runs polling to verify that there is a change, before it actually starts a build.
+Or if you have multiple repositories under a single repository host application (such as Gitosis), you can share a single post-receive hook script with all the repositories. Finally, this URL doesn‚Äôt require authentication even for secured Jenkins, because the server doesn‚Äôt directly use anything that the client is sending. It runs polling to verify that there is a change, before it actually starts a build.
 As mentioned here, make sure to use the right address for your Jenkins server:
-since weíre running Jenkins as standalone Webserver on port 8080 the URL should have been without the /jenkins, like this:
+since we‚Äôre running Jenkins as standalone Webserver on port 8080 the URL should have been without the /jenkins, like this:
 http://jenkins:8080/git/notifyCommit?url=git@gitserver:tools/common.git
 To reinforce that last point, ptha adds in the comments:
 It may be obvious, but I had issues with:
 curl http://yourserver/jenkins/git/notifyCommit?url=<URL of the Git repository>.
 The url parameter should match exactly what you have in Repository URL of your Jenkins job.
-When copying examples I left out the protocol, in our case ssh://, and it didnít work.
-You can also use a simple post-receive hook like in ìPush based builds using Jenkins and GITî
+When copying examples I left out the protocol, in our case ssh://, and it didn‚Äôt work.
+You can also use a simple post-receive hook like in ‚ÄúPush based builds using Jenkins and GIT‚Äù
 #!/bin/bash
-/usr/bin/curl ñuser USERNAME:PASS -s \
+/usr/bin/curl ‚Äìuser USERNAME:PASS -s \
 http://jenkinsci/job/PROJECTNAME/build?token=1qaz2wsx
-Configure your Jenkins job to be able to ìTrigger builds remotelyî and use an authentication token (1qaz2wsx in this example).
+Configure your Jenkins job to be able to ‚ÄúTrigger builds remotely‚Äù and use an authentication token (1qaz2wsx in this example).
 However, this is a project-specific script, and the author mentions a way to generalize it.
-The first solution is easier as it doesnít depend on authentication or a specific project.
+The first solution is easier as it doesn‚Äôt depend on authentication or a specific project.
 I want to check in change set whether at least one java file is there the build should start.
 Suppose the developers changed only XML files or property files, then the build should not start.
 Basically, your build script can:
-put a ëbuildí notes (see git notes) on the first call
-on the subsequent calls, grab the list of commits between HEAD of your branch candidate for build and the commit referenced by the git notes ëbuildí (git show refs/notes/build): git diff ñname-only SHA_build HEAD.
+put a ‚Äòbuild‚Äô notes (see git notes) on the first call
+on the subsequent calls, grab the list of commits between HEAD of your branch candidate for build and the commit referenced by the git notes ‚Äòbuild‚Äô (git show refs/notes/build): git diff ‚Äìname-only SHA_build HEAD.
 your script can parse that list and decide if it needs to go on with the build.
-in any case, create/move your git notes ëbuildí to HEAD.
+in any case, create/move your git notes ‚Äòbuild‚Äô to HEAD.
