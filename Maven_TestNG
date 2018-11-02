@@ -1,0 +1,36 @@
+How to execute multiple class files (TestNG based scripts) in Maven project?
+
+
+testng.xml needs to be created and pom.xml needs to be updated with plugin configuration
+
+create "src/main/resources" source folder and create file inside it. file name should be testng.xml and content should below
+
+testng.xml:
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="suiteName" >
+  <test name="testName" >
+    <packages>
+      <package name="com.qa.tests" />
+   </packages>
+  </test>
+</suite>
+
+
+pom.xml should be updated with below plugin script.
+
+      <build>
+         <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>2.12.4</version>
+               <configuration>
+                  <suiteXmlFiles>
+                     <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
+                  </suiteXmlFiles>
+               </configuration>
+            </plugin>     
+         </plugins>
+      </build>
