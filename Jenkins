@@ -1,0 +1,26 @@
+	
+Jenkins:
+https://www.tutorialspoint.com/jenkins/jenkins_overview.htm
+
+
+Jenkins is a software that allows continuous integration. Jenkins will be installed on a server where the 
+central build will take place
+
+Hudson is a very popular open-source Java-based continuous integration tool developed by Sun Microsystems which was later acquired by Oracle. After the acquisition of Sun by Oracle, a fork was created from the Hudson source code, which brought about the introduction of Jenkins.
+
+
+CI:
+Continuous Integration is a development practice that requires developers to integrate code into a shared repository at regular intervals. This concept was meant to remove the problem of finding later occurrence of issues in the build lifecycle. Continuous integration requires the developers to have frequent builds. The common practice is that whenever a code commit occurs, a build should be triggered.
+
+
+Jenkins password Reset:
+
+
+file path: C:\Program Files (x86)\Java\Jenkins\users\admin
+
+/var/lib/jenkins/users/username/config.xml file  and update the contents of passwordHash:
+Replace with current with below.
+
+#jbcrypt:$2a$10$SmpPO.crN1akTcBmuiIPhOGqVL82RtBQlgaX9u3/4CKUtFNS9Iesy
+
+Save file and restart Jenkins service  now able to login with password “ India@123”
