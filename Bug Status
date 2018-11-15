@@ -1,0 +1,44 @@
+
+New: 
+When a new defect is logged and posted for the first time. It is assigned a status NEW.
+
+Assigned:
+Once the bug is posted by the tester, the lead of the tester approves the bug and assigns the bug to developer team
+
+Open:
+The developer starts analyzing and works on the defect fix
+
+Fixed:
+When developer makes necessary code change and verifies the change, he or she can make bug status as "Fixed."
+
+Pending retest:
+Once the defect is fixed the developer gives particular code for retesting the code to the tester. Since the testing remains
+pending from the testers end, the status assigned is "pending request."
+
+Retest: 
+Tester does the retesting of the code at this stage to check whether the defect is fixed by the developer or not 
+and change the status to "Re-test."
+
+Verified: 
+The tester re-tests the bug after it got fixed by the developer.
+If there is no bug detected in the software, then the bug is fixed and the status assigned is "verified."
+
+Reopen:
+If the bug persists even after the developer has fixed the bug, the tester changes the status to "reopened". 
+Once again the bug goes through the life cycle.
+
+Closed:
+If the bug is no longer exists then tester assigns the status "Closed." 
+
+Duplicate: 
+If the defect is repeated twice or the defect corresponds the same concept of the bug, the status is changed to "duplicate."
+
+Rejected:
+If the developer feels the defect is not a genuine defect then it changes the defect to "rejected."
+
+Deferred: 
+If the present bug is not of a prime priority and if it is expected to get fixed in the next release, then status "Deferred" 
+is assigned to such bugs
+
+Not a bug:
+If it does not affect the functionality of the application then the status assigned to a bug is "Not a bug".
