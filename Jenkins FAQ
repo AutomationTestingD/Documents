@@ -2,7 +2,9 @@
 Jenkins is an open source tool with plugin built for continuous integration purpose.  The principle functionality of Jenkins is to keep a track of version control system and to initiate and monitor a build system if changes occur. It monitors the whole process and provides reports and notifications to alert.
 
 2) Explain what is continuous integration?
-In software development, when multiple developers or teams are working on different segments of same web application, we need to perform integration test by integrating all modules.  In order to do that an automated process for each piece of code is performed on daily bases so that all your code get tested.
+In software development, when multiple developers or teams are working on different segments of same web application, 
+we need to perform integration test by integrating all modules.  In order to do that an automated process for each piece of 
+code is performed on daily bases so that all your code get tested.
 
 3) What is the requirement for using Jenkins?
 To use Jenkins you require
@@ -231,3 +233,12 @@ put a ‘build’ notes (see git notes) on the first call
 on the subsequent calls, grab the list of commits between HEAD of your branch candidate for build and the commit referenced by the git notes ‘build’ (git show refs/notes/build): git diff –name-only SHA_build HEAD.
 your script can parse that list and decide if it needs to go on with the build.
 in any case, create/move your git notes ‘build’ to HEAD.
+
+
+How to schedule Jenkins everyday 8 Am?
+
+From Configure job, I am checking the "Build Periodically" checkbox and in the Schedule text field added the expression:
+
+By setting the schedule period to 15 13 * * * you tell Jenkins to schedule the build every day of every month of every year at the 15th minute of the 13th hour of the day.
+If you want to schedule your build every 5 minutes, this will do the job : */5 * * * *
+If you want to schedule your build every day at 8h00, this will do the job : 0 8 * * *
