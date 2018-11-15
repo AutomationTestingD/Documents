@@ -2,23 +2,29 @@ Data Driven Framework in Selenium WebDriver Using Apache POI
 
 
 How to work on Data Driven Framework in Selenium Using Apache POI?
-Data Driven Framework is one of the popular Automation Testing Framework in the current market. Data Driven automated testing is a method in which the test data set is created in the excel sheet, and is then imported into automation testing tools to feed to the software under test.
+Data Driven Framework is one of the popular Automation Testing Framework in the current market. Data Driven automated testing is 
+a method in which the test data set is created in the excel sheet, and is then imported into automation testing tools to feed to 
+the software under test.
 
 Selenium Webdriver is a great tool to automate web-based applications. But it does not support read and write operations on excel files. 
 Therefore, we use third party APIs like Apache POI.
 
 
 What is Apache POI?
-Apache POI (Poor Obfuscation Implementation) is an API written in Java to support read and write operations – modifying office files. This is the most common API used for Selenium data driven tests.
+Apache POI (Poor Obfuscation Implementation) is an API written in Java to support read and write operations – modifying office files.
+This is the most common API used for Selenium data driven tests.
 
 
 
-There are several ways to implement a Data Driven Framework, and each differs in the effort required to develop the framework and maintenance.
-Developing Data Driven framework in Selenium using POI helps reduce maintenance, improve test coverage thus providing a good return on investment.
+There are several ways to implement a Data Driven Framework, and each differs in the effort required to develop the framework 
+and maintenance.
+Developing Data Driven framework in Selenium using POI helps reduce maintenance, improve test coverage thus providing a good
+return on investment.
 
 
 Why data drive tests?
-Often there might be may be a number of data sets that have to be used to test a feature of an application. Now running the same test with different data manually is time-consuming, error prone and a boring task.
+Often there might be may be a number of data sets that have to be used to test a feature of an application. Now running the 
+same test with different data manually is time-consuming, error prone and a boring task.
 
 Let us understand this scenario with an example.
 Suppose we need to test the login/Register/ Any form with multiple input fields with 100 different data sets.
@@ -30,7 +36,8 @@ To test this you have three different approaches:
 3) Import the data from the excel sheet and execute the script multiple times with different data.
 
 First two scenarios are laborious, time-consuming – implying low ROI. Hence, we must follow the third approach.
-In the third approach, are implementing the Data Driven framework, where all our data resides in an excel sheet, where it is imported from and used to test the features of the application.
+In the third approach, are implementing the Data Driven framework, where all our data resides in an excel sheet, 
+where it is imported from and used to test the features of the application.
 
 In order to follow this approach we must have Eclipse, TestNG properly configured.
 
@@ -66,7 +73,8 @@ The steps to use Selenium with Apache POI
 Let us create an automation script to test the login process of a web -based applications.
 Here, I have taken LinkedIn as an example.
 
-We import data from an excel sheet and then use it to log into the application and after execution, we write the result in the excel sheet.
+We import data from an excel sheet and then use it to log into the application and after execution, we write the result 
+in the excel sheet.
 We need the following software installed on our system to carry on with the steps to execute the framework:
 Java JDK 1.7+
 Eclipse IDE
@@ -87,7 +95,8 @@ poi-ooxml-schemas-3.10-FINAL-20140208.jar
 xmlbeans-2.3.0.jar
 
 Step #3) 
-After configuring the respective jars, create an excel sheet enter some data in it and save it as TestData.xlsx at your preferred location.
+After configuring the respective jars, create an excel sheet enter some data in it and save it as TestData.xlsx at your 
+preferred location.
 
 
 Step #4) 
@@ -170,7 +179,8 @@ public class ReadWriteExcel
 
 Step #5)
 Right click on the test case class and click on Run as –> TestNG Test.
-Apache POI imports data from the excel sheet and uses it to log into our application. Now that we saw how to read data from the excel sheet, let’s look at 
+Apache POI imports data from the excel sheet and uses it to log into our application. Now that we saw how to read 
+data from the excel sheet, let’s look at 
 
 
 how to write to the sheet.
@@ -287,5 +297,7 @@ Permits better error handling.
 
 
 Conclusion
-Input/Output from and to a file is a very critical part of software testing process. Apache POI plays a vital role in making this possible for Selenium Test Automation.
-Selenium integrated with Apache POI facilitates you to run your script multiple times with different data sets, with all data maintained at a single location. It saves time and maintenance effort on the test script.
+Input/Output from and to a file is a very critical part of software testing process. Apache POI plays a vital role
+in making this possible for Selenium Test Automation.
+Selenium integrated with Apache POI facilitates you to run your script multiple times with different data sets, 
+with all data maintained at a single location. It saves time and maintenance effort on the test script.
