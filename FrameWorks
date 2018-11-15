@@ -1,0 +1,133 @@
+What is Framework?
+
+A framework is considered to be a combination of set protocols, rules, standards and guidelines that can be
+incorporated or followed as a whole so as to leverage the benefits of the scaffolding provided by the Framework.
+Let us consider a real-life scenario.
+We very often use lifts or elevators. There are a few guidelines those are mentioned within the elevator to be 
+followed and taken care off so as to leverage the maximum benefit and prolonged service from the system.
+Thus, the users might have noticed the following guidelines:
+Keep a check on the maximum capacity of the elevator and do not get onto an elevator if the maximum capacity has reached.
+Press the alarm button in case of any emergency or trouble.
+Allow the passenger to get off the elevator if any before entering the elevator and stand clear of the doors.
+In case of fire in the building or if there is any haphazard situation, avoid the use of the elevator.
+Do not play or jump inside the elevator.
+Do not smoke inside the elevator.
+Call for the help/assistance if the door doesn’t open or if the elevator doesn’t work at all. Do not try to open the doors 
+forcefully.
+
+
+Advantage of Test Automation framework
+Reusability of code
+Maximum coverage
+Recovery scenario
+Low-cost maintenance
+Minimal manual intervention
+Easy Reporting
+
+
+Let us discuss the few most popularly used Test Automation Frameworks:
+Module Based Testing Framework
+Library Architecture Testing Framework
+Data Driven Testing Framework
+Keyword Driven Testing Framework
+Hybrid Testing Framework
+Behavior Driven Development Framework
+
+
+#3) Data Driven Testing Framework
+While automating or testing any application, at times it may be required to test the same functionality multiple times with 
+the different set of input data. Thus, in such cases, we can’t let the test data embedded in the test script. Hence it is
+advised to retain test data into some external database outside the test scripts.
+Data Driven Testing Framework helps the user segregate the test script logic and the test data from each other.
+It lets the user store the test data into an external database. The external databases can be property files, xml files,
+excel files, text files, CSV files, ODBC repositories etc. The data is conventionally stored in “Key-Value” pairs. Thus, 
+the key can be used to access and populate the data within the test scripts.
+
+
+
+Pros: 
+The most important feature of this framework is that it considerably reduces the total number of scripts required to
+cover all the possible combinations of test scenarios. Thus lesser amount of code is required to test a complete set of scenarios.
+Any change in the test data matrix would not hamper the test script code.
+Increases flexibility and maintainability
+A single test scenario can be executed altering the test data values.
+Cons:
+The process is complex and requires an extra effort to come up with the test data sources and reading mechanisms.
+Requires proficiency in a programming language that is being used to develop test scripts.
+
+
+
+#4) Keyword Driven Testing Framework
+The Keyword driven testing framework is an extension to Data driven Testing Framework in a sense that it not only 
+segregates the test data from the scripts, it also keeps the certain set of code belonging to the test script into 
+an external data file.
+These set of code are known as Keywords and hence the framework is so named. Keywords are self-guiding as to 
+what actions need to be performed on the application.
+The keywords and the test data are stored in a tabular like structure and thus it is also popularly regarded as
+Table driven Framework. Take a notice that keywords and test data are entities independent of the automation tool being used.
+In the above example, keywords like login, clicking and verify Link are defined within the code.
+Depending upon the nature of application keywords can be derived. And all the keywords can be reused multiple times in 
+a single test case. Locator column contains the locator value that is used to identify the web elements on the screen or
+the test data that needs to be supplied.
+All the required keywords are designed and placed in the base code of the framework.
+Pros: 
+In addition to advantages provided by Data Driven testing, the Keyword driven framework doesn’t require the user to possess 
+scripting knowledge, unlike Data Driven Testing.
+A single keyword can be used across multiple test scripts.
+Cons:
+The user should be well versed with the Keyword creation mechanism to be able to efficiently leverage the benefits provided
+by the framework.
+The framework becomes complicated gradually as it grows and a number of new keywords are introduced.
+
+
+
+
+#5) Hybrid Testing Framework
+As the name suggests, the Hybrid Testing Framework is a combination of more than one above mentioned frameworks. 
+The best thing about such a setup is that it leverages the benefits of all kinds of associated frameworks.
+
+#6) Behavior Driven Development Framework
+Behavior Driven Development framework allows automation of functional validations in easily readable and understandable 
+format to Business Analysts, Developers, Testers, etc. Such frameworks do not necessarily require the user to be acquainted 
+with the programming language. There are different tools available for BDD like cucumber, Jbehave etc. Details of BDD framework are 
+discussed later in Cucumber tutorial. We have also discussed details on Gherkin language to write test cases in Cucumber.                    
+
+
+
+
+
+
+Components of Automatoin Tseting Framework:
+
+Automation Tseting Framwork:
+Build Tools and Continuous Integration (Reporting)
+TestExecutionReports  LoggingInformation  GeneratedExceptions EmainNotifications
+
+Execution Enfironments:
+
+common Libraries:
+Generics ProgramLogics DataReaders
+
+Automation ToolSet:
+ObjectRepository TestData ConfigurationFiles Constants EnvironmentSettings
+
+
+Though the above pictorial representation of a framework is self-explanatory we would still highlight a few points.
+Object Repository: Object Repository acronym as OR is constituted of the set of locators types associated with web elements.
+Test Data: The input data with which the scenario would be tested and it can be the expected values with which the actual results 
+would be compared.
+Configuration File/Constants/ Environment Settings: The file stores the information regarding the application URL, browser-specific
+information etc. It is generally the information that remains static throughout the framework.
+Generics/ Program logics/ Readers: These are the classes that store the functions which can be commonly used across the entire 
+framework.
+Build tools and Continuous Integration: These are the tools that aids to the capabilities of the framework to generate test reports,
+email notifications and logging information.
+
+
+
+
+
+
+
+In the above example, keyword column contains all the required keywords used in the particular test case and data column drives 
+all the data required in the test scenario. If any step does not need any input then it can be left empty.
