@@ -1,0 +1,291 @@
+Data Driven Framework in Selenium WebDriver Using Apache POI
+
+
+How to work on Data Driven Framework in Selenium Using Apache POI?
+Data Driven Framework is one of the popular Automation Testing Framework in the current market. Data Driven automated testing is a method in which the test data set is created in the excel sheet, and is then imported into automation testing tools to feed to the software under test.
+
+Selenium Webdriver is a great tool to automate web-based applications. But it does not support read and write operations on excel files. 
+Therefore, we use third party APIs like Apache POI.
+
+
+What is Apache POI?
+Apache POI (Poor Obfuscation Implementation) is an API written in Java to support read and write operations – modifying office files. This is the most common API used for Selenium data driven tests.
+
+
+
+There are several ways to implement a Data Driven Framework, and each differs in the effort required to develop the framework and maintenance.
+Developing Data Driven framework in Selenium using POI helps reduce maintenance, improve test coverage thus providing a good return on investment.
+
+
+Why data drive tests?
+Often there might be may be a number of data sets that have to be used to test a feature of an application. Now running the same test with different data manually is time-consuming, error prone and a boring task.
+
+Let us understand this scenario with an example.
+Suppose we need to test the login/Register/ Any form with multiple input fields with 100 different data sets.
+
+To test this you have three different approaches:
+
+1) Create 100 scripts one for each dataset and execute each test one by one.
+2) Change the data in the script and execute it multiple times.
+3) Import the data from the excel sheet and execute the script multiple times with different data.
+
+First two scenarios are laborious, time-consuming – implying low ROI. Hence, we must follow the third approach.
+In the third approach, are implementing the Data Driven framework, where all our data resides in an excel sheet, where it is imported from and used to test the features of the application.
+
+In order to follow this approach we must have Eclipse, TestNG properly configured.
+
+Once done, we will look at:
+Various interfaces of Apache POI.
+Integration of Apache POI in the Eclipse.
+Read Data from the Excel Sheet.
+Write data to the Excel Sheet.
+Advantages of using Apache POI with Selenium.
+Interface in POI
+
+One of the most remarkable features of Apache POI is that it supports read and write operations on both .xls and .xslx files.
+Below mentioned are some of the interfaces of POI.
+
+XSSFWorkbook: Represents workbook in xlsx file.
+HSSFWorkbook: Represents workbook in xls file.
+XSSFSheet: Represents a sheet in XLSX file.
+HSSFSheet: Represents a sheet in XLS file.
+XSSFRow: Represents a row in a sheet of XLSX file.
+HSSFRow: Represents a row in a sheet of XLS file.
+XSSFCell: Represents a cell in a row of XLSX file.
+HSSFCell: Represents a cell in a row of XLS file.
+
+Fields available in a cell:
+CELL_TYPE_BLANK: Represents a blank cell.
+CELL_TYPE_BOOLEAN: Represents a Boolean cell (true or false).
+CELL_TYPE_ERROR: Represents an error value in a cell.
+CELL_TYPE_FORMULA: Represents a formula result on a cell.
+CELL_TYPE_NUMERIC: Represents numeric data in a cell.
+CELL_TYPE_STRING: Represents string in a cell.
+The steps to use Selenium with Apache POI
+
+Let us create an automation script to test the login process of a web -based applications.
+Here, I have taken LinkedIn as an example.
+
+We import data from an excel sheet and then use it to log into the application and after execution, we write the result in the excel sheet.
+We need the following software installed on our system to carry on with the steps to execute the framework:
+Java JDK 1.7+
+Eclipse IDE
+TestNG
+Selenium jars
+Microsoft Office / Open Office
+
+Step #1) 
+Firstly, we need to configure Eclipse with Apache POI.
+Download jar files for Apache POI.
+
+Step #2) 
+Unzip the jar file, and add the following jars to your project and configure them.
+dom4j-1.6.1.jar
+poi-3.10-FINAL-20140208.jar
+poi-ooxml-3.10-FINAL-20140208.jar
+poi-ooxml-schemas-3.10-FINAL-20140208.jar
+xmlbeans-2.3.0.jar
+
+Step #3) 
+After configuring the respective jars, create an excel sheet enter some data in it and save it as TestData.xlsx at your preferred location.
+
+
+Step #4) 
+Now let us follow the sample code to read data from the excel sheet and use it to login to linkedin.com.
+
+
+
+package automationFramework;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class ReadWriteExcel
+
+{
+    WebDriver driver;
+    WebDriverWait wait;
+    HSSFWorkbook workbook;
+    HSSFSheet sheet;
+    HSSFCell cell;
+ 
+ @BeforeTest
+ public void TestSetup()
+{
+    // Set the path of the Firefox driver.
+    System.setProperty("webdriver.gecko.driver", "C:\\Users\\geckodriver.exe");
+    driver = new FirefoxDriver();
+     
+ // Enter url.
+
+    driver.get("http://www.linkedin.com/");
+    driver.manage().window().maximize();
+    wait = new WebDriverWait(driver,30);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+}
+  
+ @Test
+ public void ReadData() throws IOException
+ {
+     // Import excel sheet.
+     File src=new File("C:\\Users\\Admin\\Desktop\\TestData.xls");
+      
+     // Load the file.
+     FileInputStream finput = new FileInputStream(src);
+      
+     // Load he workbook.
+    workbook = new HSSFWorkbook(finput);
+      
+     // Load the sheet in which data is stored.
+     sheet= workbook.getSheetAt(0);
+     
+     for(int i=1; i&amp;lt;=sheet.getLastRowNum(); i++)
+     {
+         // Import data for Email.
+         cell = sheet.getRow(i).getCell(1);
+         cell.setCellType(Cell.CELL_TYPE_STRING);
+         driver.findElement(By.id("login-email")).sendKeys(cell.getStringCellValue());
+         
+         // Import data for password.
+         cell = sheet.getRow(i).getCell(2);
+         cell.setCellType(Cell.CELL_TYPE_STRING);
+         driver.findElement(By.id("login-password")).sendKeys(cell.getStringCellValue());
+                 
+      }
+  } 
+ 
+}
+
+Step #5)
+Right click on the test case class and click on Run as –> TestNG Test.
+Apache POI imports data from the excel sheet and uses it to log into our application. Now that we saw how to read data from the excel sheet, let’s look at 
+
+
+how to write to the sheet.
+
+package automationFramework;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class ReadWriteExcel
+
+{
+    WebDriver driver;
+    WebDriverWait wait;
+    HSSFWorkbook workbook;
+    HSSFSheet sheet;
+    HSSFCell cell;
+
+ @BeforeTest
+ public void TestSetup()
+{
+    // Set the path of the Firefox driver.
+    System.setProperty("webdriver.gecko.driver", "C:\\Users\\geckodriver.exe");
+    driver = new FirefoxDriver();
+
+    // Enter url.
+    driver.get("http://www.linkedin.com/");
+    driver.manage().window().maximize();
+
+    wait = new WebDriverWait(driver,30);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+}
+
+ @Test
+ public void ReadData() throws IOException
+ {
+     // Import excel sheet.
+     File src=new File("C:\\Users\\Admin\\Desktop\\TestData.xls");
+
+     // Load the file.
+     FileInputStream finput = new FileInputStream(src);
+      
+     // Load he workbook.
+    workbook = new HSSFWorkbook(finput);
+    
+    // Load the sheet in which data is stored.
+     sheet= workbook.getSheetAt(0);
+     
+     for(int i=1; i&amp;lt;=sheet.getLastRowNum(); i++)
+     {
+         // Import data for Email.
+         cell = sheet.getRow(i).getCell(1);
+         cell.setCellType(Cell.CELL_TYPE_STRING);
+         driver.findElement(By.id("login-email")).sendKeys(cell.getStringCellValue());
+          
+         // Import data for password.
+         cell = sheet.getRow(i).getCell(2);
+         cell.setCellType(Cell.CELL_TYPE_STRING);
+         driver.findElement(By.id("login-password")).sendKeys(cell.getStringCellValue());
+         
+         // Write data in the excel.
+       FileOutputStream foutput=new FileOutputStream(src);
+
+        // Specify the message needs to be written.
+
+        String message = "Data Imported Successfully.";
+         
+        // Create cell where data needs to be written.
+
+        sheet.getRow(i).createCell(3).setCellValue(message);
+          
+        // Specify the file in which data needs to be written.
+        FileOutputStream fileOutput = new FileOutputStream(src);
+         
+        // finally write content
+        workbook.write(fileOutput);
+         
+         // close the file
+        fileOutput.close();
+             
+     }
+ } 
+}
+
+Note: If you encounter any problems during this process, please check the following points.
+Make sure all the mentioned jars are added to the project and are properly configured.
+Required software is correctly installed.
+Proper use of an interface with respect to excel file, like HSSF for .xls and XSSF for .xlsx.
+Valid row and column index is used.
+Excel file must be closed before execution.
+Proper classes used for the excel file like XSSF used for .xlsx files and HSSF used for .xls files.
+
+
+
+Advantages of using Data Driven Framework
+Improves test coverage.
+Re-usability of code.
+Less maintenance.
+Faster Execution.
+Permits better error handling.
+
+
+
+Conclusion
+Input/Output from and to a file is a very critical part of software testing process. Apache POI plays a vital role in making this possible for Selenium Test Automation.
+Selenium integrated with Apache POI facilitates you to run your script multiple times with different data sets, with all data maintained at a single location. It saves time and maintenance effort on the test script.
