@@ -1,0 +1,25 @@
+Selenium Challenges:
+
+Problem: Not listing dropdown elements in Mywipro Stationary application while selecting stationary Items
+
+<select class="custom-dropdown__select custom-dropdown__select--red" data-role="none" id="selMaterialLst" onchange="javascript:fncMaterialLstChange(this);" onselect="javascript:fncMaterialLstChange(this);">
+
+<option selected="selected" title="select stationery item" value="0">Select Stationery Items</option>
+<option value="DUSTER^MISC^STATIONARY-489^Miscellaneous^1^000^PC^17.00">DUSTER</option>
+<option value="HIGHLIGHTER PEN^PENS^STATIONARY-808^Pens / Pencils^1^000^PC^16.59">HIGHLIGHTER PEN</option>
+<option value="PENCIL ERASER^PENS^STATIONARY-358^Pens / Pencils^1^000^PC^0.85">PENCIL ERASER</option>
+<option value="PENCILS^PENS^STATIONARY-356^Pens / Pencils^2^000^PC^2.44">PENCILS</option><option value="PLASTIC FOLDERS^FILE^STATIONARY-814^Files / Folders^1^000^PC^7.00">PLASTIC FOLDERS</option>
+<option value="PLASTIC SHARPENER^PENS^STATIONARY-360^Pens / Pencils^1^000^PC^2.00">PLASTIC SHARPENER</option>
+<option value="RULED SCRIBBLING PAD 1/8^PADS^STATIONARY-449^Scribbling Pads / Registers^2^000^PC^5.00">RULED SCRIBBLING PAD 1/8</option>
+<option value="WHITE BOARD MARKER^PENS^STATIONARY-807^Pens / Pencils^1^000^PC^20.74">WHITE BOARD MARKER</option>
+
+</select>
+
+
+
+Sol:
+
+ List<WebElement> sel = driver.findElements(By.id("selMaterialLst"));
+	    WebElement a = sel.get(0);
+	    ((JavascriptExecutor)driver).executeScript("arguments[0].click()",a);
+	    driver.findElement(By.xpath("//*[@id=\"selMaterialLst\"]/option[9]")).click();
