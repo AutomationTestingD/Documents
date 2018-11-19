@@ -1,0 +1,123 @@
+Interface in Java
+
+we know that with abstract class we can achieve partial abstraction and with interface we can achieve 100% abstraction.
+
+Abstraction is a methodology of hiding the implementation of internal details and showing the functionality to the users.
+
+An interface in Java looks similar to a class but both the interface and class are two different concepts.
+An interface can have methods and variables just like the class but the methods declared in interface are by default abstract.
+We can achieve 100% abstraction and multiple inheritance in Java with Interface.
+
+Points to remember:
+1. Java interface represents IS-A relationship similar to Inheritance
+2. Interface cannot be instantiated same like abstract class
+3. Java compiler adds public and abstract keywords before the interface methods
+4. Java compiler adds public, static and final keywords before data members
+5. Interface extends another interface just like a Class extends another Class but a class implements an interface.
+6. The class that implements interface must implement all the methods of that interface.
+7. Java allows you to implement more than one interface in a Class
+
+
+To create an interface – Right click on your project – New – Interface
+
+******************************************************************
+package interfaceClass;
+ 
+public interface MyInterface {
+ 
+ // Compiler treats it as public abstract void myMethodOne();
+ // Below method has no body
+ public void myMethodOne();
+ 
+}
+******************************************************************
+
+Now create a class and implements it with the above interface
+
+
+******************************************************************
+package interfaceClass;
+ 
+public class MyClass implements MyInterface{
+ 
+ 
+ public static void main(String [] args){
+ MyInterface obj = new MyClass();
+ obj.myMethodOne();
+ }
+ 
+ // Try to comment the below method myMethodOne and see. You will face a compilation erro. 
+ // As per the rule, this class must implement the abstract method of interface
+ 
+ @Override
+ public void myMethodOne() {
+ 
+ System.out.println("Implementation of myMethodOne");
+ 
+ }
+ 
+}
+******************************************************************
+
+Interface extends another interface but interface cannot implement another interface.
+
+Now let’s see how interface extends another interface by creating two interfaces. 
+If an interface (say MyInterfaceTwo) extends another interface (MyInterfaceOne).
+Now if a Class implements the interface InterfaceTwo then this class has to provide implementation of all
+the methods of both interfaces (MyInterfaceOne and MyInterfaceTwo)
+
+
+Let’s create interface
+
+****************************************************************** 
+public interface MyInterfaceOne {
+ 
+ // Compiler treats it as public abstract void myMethodOne();
+ // Below method has no body
+ public void myMethodOne();
+ }
+******************************************************************
+
+Let’s create another interface
+
+******************************************************************
+package interfaceClass;
+public interface MyInterfaceTwo extends MyInterfaceOne{
+ 
+ // Compiler treats it as public abstract void myMethodTwo();
+ // Below method has no body
+ public void myMethodTwo();
+}
+******************************************************************
+
+
+Let’s create a Class
+
+
+******************************************************************
+package interfaceClass;
+ 
+public class MyClass implements MyInterfaceTwo{
+  
+ public static void main(String [] args){
+ MyInterfaceTwo obj = new MyClass();
+ obj.myMethodTwo();
+ }
+ 
+ // If you comment below two methods, you can see a compilation error
+ /*This class is just implementing MyInterfaceTwo but 
+ it has to implement all the methods of MyInterfaceTwo and MyInterfaceOne as well
+ because MyInterfaceTwo extends MyInterfaceOne*/
+ 
+ @Override
+ public void myMethodOne() {
+  System.out.println("Implementation of myMethodOne");
+  }
+ 
+ @Override
+ public void myMethodTwo() {
+  System.out.println("Implementation of myMethodTwo");
+  }
+ 
+}
+******************************************************************
