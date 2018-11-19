@@ -1,0 +1,130 @@
+Abstraction 
+
+Abstraction is a methodology of hiding the implementation of internal details and showing the functionality to the users
+
+Example: Mobile Phone.
+A layman who is using mobile phone doesn’t know how it works internally but he can make phone calls.
+
+Abstraction in Java is achieved using abstract classes and interfaces
+
+Abstract Class:
+We can easily identify whether a class is an abstract class or not. A class which contains abstract keyword in its
+declaration then it is an Abstract Class.
+
+Syntax: abstract class <class-name>{}
+
+Points to remember:
+1. Abstract classes may or may not include abstract methods
+2. If a class is declared abstract then it cannot be instantiated.
+3. If a class has abstract method then we have to declare the class as abstract class
+4. When an abstract class is subclassed, the subclass usually provides implementations for all of the abstract methods
+in its parent class. However, if it does not, then the subclass must also be declared abstract.
+
+Abstract Method:
+An abstract method is a method that is declared without an implementation (without braces, and followed by a semicolon).
+
+Syntax: abstract void myMethod();
+
+In order to use an abstract method, you need to override that method in sub class.
+
+To create an abstract class, just use the abstract keyword before the class keyword, in the class declaration.
+
+*********************************************************
+package abstractClass;
+ 
+// Here class is abstract
+public abstract class AbstractSuperClass {
+ 
+ // myMethod() is an abstract method
+ abstract void myMethod();
+ 
+}
+*********************************************************
+
+Let’s try to instantiate the AbstractSuperClass class in the following way
+
+*********************************************************
+public class AbstractChildOneClass{
+ 
+ public static void main (String [] args){
+ 
+ AbstractSuperClass obj = new AbstractSuperClass();
+ 
+ obj.myMethod();
+ 
+ }
+ 
+}
+*********************************************************
+
+Output:
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+ Cannot instantiate the type AbstractSuperClass
+ 
+ at abstractClass.AbstractChildOneClass.main(AbstractChildOneClass.java:7)
+
+
+
+Now let’s Inherit the abstract class and see.
+
+*********************************************************
+package abstractClass;
+ 
+// Here class is abstract
+public abstract class AbstractSuperClass {
+ // data members cant be abstract
+ public int a = 10;
+ 
+ // myMethod() is an abstract method
+ abstract void myMethod();
+ 
+ // myMethod(int x) is not an abstract method. Its a concrete method
+ void myMethod(int x){
+ System.out.println("I am in Super class and I am not an abstract method. I am a concrete method");
+ }
+ 
+}
+*********************************************************
+*********************************************************
+// Inheriting the AbstractSuperClass class
+public class AbstractChildOneClass extends AbstractSuperClass{
+ 
+ public static void main (String [] args){
+ 
+                // Here we cannot instantiate the AbstractSuperClass class but we can instantiate the AbstractChildClass class
+                // Using the instance of AbstractChildClass we can access methods and data members of AbstractSuperClass class
+ 
+ AbstractSuperClass obj = new AbstractChildOneClass();
+ 
+ System.out.println("I am a data member from Super class and my value is " + obj.a);
+ obj.myMethod();
+ obj.myMethod(20);
+ 
+ }
+ 
+ @Override
+ void myMethod() {
+ 
+ System.out.println("I am in child class");
+ 
+ }
+ 
+}
+*********************************************************
+
+OutPut:
+I am a data member from Super class and my value is 10
+I am in child class
+I am in Super class and I am not an abstract method. I am a concrete method
+
+
+
+We use abstraction when we know that our class should have some methods but we are not sure how exactly 
+those methods should function. Assume, I am creating a class of Vehicle which should have a method called start().
+There will be some other subclass of this Vehicle class such as Car, Bike and these two subclasses use start() method. 
+But the implementation of start() method in Car is different from Bike. 
+So in this case I don’t implement the start() method in Vehicle class and implement those in subclasses.
+
+In the above program we have seen abstract method in the abstract class. Abstract classes doesn’t give 100% abstraction 
+since abstract class allows concrete methods. With abstract class we can achieve partial abstraction where as we can achieve
+100% abstraction with interface
