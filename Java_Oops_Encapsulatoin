@@ -1,0 +1,80 @@
+Encapsulation in Java
+
+Encapsulation is a mechanism of binding code and data together in a single unit. Let’s take an example of Capsule.
+Different powdered or liquid medicines are encapsulated inside a capsule. Likewise in encapsulation, all the methods 
+and variables are wrapped together in a single class.
+
+Let’s see how can we implement encapsulation. 
+Set the instance variables private so that these private variables cannot be accessed directly by other classes. 
+Set getter and setter methods of the class as public so that we can set and get the values of the fields.
+
+Let’s see a sample program.
+
+**************************************************************************************
+package encapsulationClass;
+public class EncapsulationClassOne {
+ 
+        // Variables declared as private
+        // These private variables can only be accessed by public methods of class
+ private int age;
+ private String name;
+ 
+        // getter method to access private variable
+ public int getAge(){
+ return age;
+ }
+ 
+ public String getName(){
+ return name;
+ }
+ 
+        // setter method to access private variable
+ public void setAge(int inputAge){
+ age = inputAge;
+ }
+ 
+ public void setName(String inputName){
+ name = inputName;
+ }
+ 
+}
+
+**************************************************************************************
+
+
+**************************************************************************************
+package encapsulationClass;
+ 
+public class EncapsulationClassTwo {
+ 
+ public static void main(String [] args){
+ 
+ EncapsulationClassOne obj = new EncapsulationClassOne();
+                // Setting values of the variables
+ obj.setAge(25);
+ obj.setName("Rajkumar");
+ 
+ System.out.println("My name is "+ obj.getName());
+ System.out.println("My age is "+ obj.getAge());
+ 
+ }
+ 
+}
+
+**************************************************************************************
+Output:
+
+My name is Rajkumar
+My age is 25
+
+**************************************************************************************
+
+
+In the above example, you can find all the data member (variables) are declared as private.
+If the data member is private it means it can only be accessed within the same class. No other 
+class can access these private variables of other class. To access these private variables from other classes, 
+we used public getter and setter methods such as getAge(), getName(), setAge(), setName(). 
+So, the data can be accessed by public methods when we can set the variables private and hide their implementation from other classes. 
+This way we call encapsulation as data hiding.
+
+
