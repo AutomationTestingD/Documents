@@ -1,0 +1,93 @@
+Inheritance In Java
+
+Inheritance is a process where one class inherits the properties of another class.
+
+Let’s say we have two classes namely Parent Class and Child Class. Child class is also known as Derived Class.
+As per the above definition, the Child class inherits the properties of the Parent Class. The main purpose of Inheritance is
+to obtain Code Reusability. We can achieve run time polymorphism with inheritance. We will see what is run time polymorphism in 
+few minutes.
+
+Assume we have a Class named Laptop, Apple MacBook Pro, Lenovo Yoga. Apple MacBook Pro and Lenovo Yoga classes extend the
+Laptop Class to inherit the properties of the Laptop Class.
+
+
+In inheritance, we use two keywords namely extends and implements
+
+Extends:
+We use extends keyword in Java to allow the child class to inherit all the properties (data members and methods) of 
+the parent class and in addition to these, we can also create new data members and methods. If the properties are private 
+then the child class cannot inherit those properties from the parent class.
+
+ex:
+class QA extends Employee
+{
+}
+
+Technically, we say that child class has IS-A relationship with the parent class
+As per the IS-A relationship, we can say QA IS-A Employee
+
+
+Employee Class:
+
+*************************************************************************
+package classFourOops.inheritance;
+ 
+public class Employee {
+ 
+ String name = "Rajkumar";
+}
+*************************************************************************
+
+QA Class:
+
+*************************************************************************
+package classFourOops.inheritance;
+public class QA extends Employee{
+
+String fullName = "Rajkumar SM";
+ 
+ public static void main(String [] args){
+ 
+ QA objName = new QA();
+ 
+ System.out.println(objName.name);
+ System.out.println(objName.fullName);
+ 
+ }
+ }
+*************************************************************************
+
+
+In the above example, QA object can access the properties of its own as well as Employee class.
+
+
+Implements:
+We use implements keyword in Java to inherit the properties from an interface. Interfaces cannot be extended by the classes.
+
+We will see this in Interface section.
+
+Types of Inheritance:
+
+1. Single Inheritance
+2. Multilevel Inheritance
+3. Hierarchical Inheritance
+There are two more inheritances such as Multiple and Hybrid Inheritance which are supported through interface only. 
+We will see those in the Interface section.
+
+Single Inheritance:
+Single Inheritance in Java refers to a child and parent class relationship. In this one class extends another 
+class say Class B extends Class A
+
+Multilevel Inheritance:
+Multilevel Inheritance in Java refers to a child and parent class relationship. In this a class extends 
+a child class say Class C extends Class B and Class B extends Class A
+
+Hierarchical Inheritance:
+Hierarchical Inheritance in Java refers to a child and parent class relationship. In this more than one class 
+extends the same class say Class B, Class C extends Class A
+
+Multiple Inheritance:
+Multiple Inheritance is not possible in Java. In this a child extends two parents classes say Class C extends Class A and Class B.
+
+Hybrid Inheritance:
+Combination of more than one type of inheritance
