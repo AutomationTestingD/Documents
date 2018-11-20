@@ -108,6 +108,8 @@ git push -u origin [branch name]                                                
 
 git push                                                                            Push changes to remote repository (remembered branch)
 
+
+
 git push origin --delete [branch name]                                              Delete a remote branch
 
 git pull                                                                            Update local repository to the newest commit
@@ -120,12 +122,7 @@ git remote set-url origin ssh://git@github.com/[username]/[repository-name].git 
 
 
 
-
-
-
-
 Inspection & Comparison:
-
 
 
 Command                                         Description
@@ -136,3 +133,21 @@ git log --summary                               View changes (detailed)
 
 git diff [source branch] [target branch}        Preview changes before merging
 
+
+
+Troubleshoot:
+
+Error: Permission denied (publickey).
+commands:
+C:\Users\Sandy\eclipse-workspace\NewMyWiproDataDrivenFrameWork>git remote add origin https://github.com/Dileep250/DataDrivenFrameWork.git
+C:\Users\Sandy\eclipse-workspace\NewMyWiproDataDrivenFrameWork>git push origin master
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights
+and the repository exists.
+
+Solution: Your git URL might have changed. Change the URL in the local directory by using the following command
+          git remote set-url origin git@XXXXXXXXXXXX
+
+C:\Users\Sandy\eclipse-workspace\NewMyWiproDataDrivenFrameWork>git remote set-url origin https://github.com/Dileep250/DataDrivenFrameWork.git
+C:\Users\Sandy\eclipse-workspace\NewMyWiproDataDrivenFrameWork>git push origin master
