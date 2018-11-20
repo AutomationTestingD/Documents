@@ -64,22 +64,34 @@ And build tools like Apache Maven.
 
 
 Jenkins Interview Questions # 1) What is Jenkins?
-Answer # Jenkins is an open source automation server. Jenkins is a continuous integration tool developed in Java. Jenkins helps to automate the non-human part of software development process, with continuous integration and facilitating technical aspects of continuous delivery.
+Answer # Jenkins is an open source automation server. Jenkins is a continuous integration tool developed in Java.
+Jenkins helps to automate the non-human part of software development process, with continuous integration and facilitating technical
+aspects of continuous delivery.
  
 Jenkins Interview Questions # 2) Why do we use Jenkins?
-Answer # Jenkins is an open-source continuous integration software tool written in the Java programming language for testing and reporting on isolated changes in a larger code base in real time. The Jenkins software enables developers to find and solve defects in a code base rapidly and to automate testing of their builds.
+Answer # Jenkins is an open-source continuous integration software tool written in the Java programming language for
+testing and reporting on isolated changes in a larger code base in real time.
+The Jenkins software enables developers to find and solve defects in a code base rapidly and to automate testing of their builds.
  
 Jenkins Interview Questions # 3) What is Maven and what is Jenkins?
-Answer # Maven is a build tool, in short a successor of ant. It helps in build and version control. However, Jenkins is continuous integration system, where in maven is used for build. Jenkins can be used to automate the deployment process.
+Answer # Maven is a build tool, in short a successor of ant. It helps in build and version control.
+However, Jenkins is continuous integration system, where in maven is used for build.
+Jenkins can be used to automate the deployment process.
  
 Jenkins Interview Question # 4) What is the difference between Hudson and Jenkins?
-Answer # Jenkins is the new Hudson. It really is more like a rename, not a fork, since the whole development community moved to Jenkins. (Oracle is left sitting in a corner holding their old ball “Hudson“, but it’s just a soul-less project now.). In a nutshell Jenkins CI is the leading open-source continuous integration server.
+Answer # Jenkins is the new Hudson. It really is more like a rename, not a fork, 
+since the whole development community moved to Jenkins. (Oracle is left sitting in a corner holding their old ball “Hudson“,
+but it’s just a soul-less project now.). In a nutshell Jenkins CI is the leading open-source continuous integration server.
  
 Jenkins Interview Questions # 5) What is meant by continuous integration in Jenkins?
-Answer # Continuous integration is a process in which all development work is integrated as early as possible. The resulting artifacts are automatically created and tested. This process allows to identify errors as early as possible. Jenkins is a popular open source tool to perform continuous integration and build automation.
+Answer # Continuous integration is a process in which all development work is integrated as early as possible. 
+The resulting artifacts are automatically created and tested. 
+This process allows to identify errors as early as possible.
+Jenkins is a popular open source tool to perform continuous integration and build automation.
 
 Continuous Integration Interview Questions # 6) Why do we use Jenkins with selenium?
-Answer # Running Selenium tests in Jenkins allows you to run your tests every time your software changes and deploy the software to a new environment when the tests pass. Jenkins can schedule your tests to run at specific time.
+Answer # Running Selenium tests in Jenkins allows you to run your tests every time your software changes and deploy the 
+software to a new environment when the tests pass. Jenkins can schedule your tests to run at specific time.
  
 Jenkins CI CD Interview Questions # 7) What are CI Tools?
 Answer # Here is the list of the top 8 Continuous Integration tools:
@@ -93,41 +105,59 @@ CircleCI
 Codeship
  
 Jenkins Pipeline Interview Questions # 8) What is a CI CD pipeline?
-Answer # A continuous integration and deployment pipeline (CD/CI) is such an important aspect of a software project. It saves a ton of manual, error-prone deployment work. It results in higher quality software for continuous integration, automated tests, and code metrics.
+Answer # A continuous integration and deployment pipeline (CD/CI) is such an important aspect of a software project.
+It saves a ton of manual, error-prone deployment work. It results in higher quality software for continuous integration,
+automated tests, and code metrics.
  
 Jenkins Tough Interview Questions # 9) What is build pipeline in Jenkins?
-Answer # Job chaining in Jenkins is the process of automatically starting other job(s) after the execution of a job. This approach lets you build multi-step build pipelines or trigger the rebuild of a project if one of its dependencies is updated.
+Answer # Job chaining in Jenkins is the process of automatically starting other job(s) after the execution of a job.
+This approach lets you build multi-step build pipelines or trigger the rebuild of a project if one of its dependencies is updated.
  
 Jenkin Interview Questions # 10) What is a Jenkins pipeline?
-Answer # The Jenkins Pipeline plugin is a game changer for Jenkins users. Based on a Domain Specific Language (DSL) in Groovy, the Pipeline plugin makes pipelines scriptable and it is an incredibly powerful way to develop complex, multi-step DevOps pipelines.
+Answer # The Jenkins Pipeline plugin is a game changer for Jenkins users.
+Based on a Domain Specific Language (DSL) in Groovy, 
+the Pipeline plugin makes pipelines scriptable and it is an incredibly powerful way to develop complex, multi-step DevOps pipelines.
 
 
 Jenkins Interview Questions And Answers For Experienced
 
 Jenkins Interview Questions # 11) What is a DSL Jenkins?
-Answer # The Jenkins “Job DSL / Plugin” is made up of two parts: The Domain Specific Language (DSL) itself that allows users to describe jobs using a Groovy-based language, and a Jenkins plugin which manages the scripts and the updating of the Jenkins jobs which are created and maintained as a result.
+Answer # The Jenkins “Job DSL / Plugin” is made up of two parts: 
+The Domain Specific Language (DSL) itself that allows users to describe jobs using a Groovy-based language, 
+and a Jenkins plugin which manages the scripts and the updating of the Jenkins jobs which are created and maintained as a result.
  
 Jenkins Interview Questions For Devops # 12) What is continuous integration and deployment?
 Answer # Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early.
  
 Jenkins Real Time Interview Questions # 13) What is the tool used for provisioning and configuration?
-Answer # Ansible is an agent-less configuration management as well as orchestration tool. In Ansible, the configuration modules are called “Playbooks”. Like other tools, Ansible can be used for cloud provisioning.
+Answer # Ansible is an agent-less configuration management as well as orchestration tool.
+In Ansible, the configuration modules are called “Playbooks”. Like other tools, Ansible can be used for cloud provisioning.
  
 Jenkins Questions And Answers # 14) What is the difference between Maven, Ant and Jenkins?
-Answer # Maven and ANT are build tool but main difference is that maven also provides dependency management, standard project layout and project management. On difference between Maven, ANT and Jenkins, later is a continuous integration tool which is much more than build tool.
+Answer # Maven and ANT are build tool but main difference is that maven also provides dependency management,
+standard project layout and project management. On difference between Maven, ANT and Jenkins, 
+later is a continuous integration tool which is much more than build tool.
  
 Jenkins Questions # 15) Which SCM tools Jenkins supports?
-Answer # Jenkins supports version control tools, including AccuRev, CVS, Subversion, Git, Mercurial, Perforce, ClearCase and RTC, and can execute Apache Ant, Apache Maven and sbt based projects as well as arbitrary shell scripts and Windows batch commands.
+Answer # Jenkins supports version control tools, including AccuRev, CVS, Subversion, Git, Mercurial, Perforce,
+ClearCase and RTC, and can execute Apache Ant, Apache Maven and sbt based projects as well as arbitrary
+shell scripts and Windows batch commands.
 Jenkins Interview Questions For Testers
 
 Devops Interview Questions Jenkins # 16) How schedule a build in Jenkins?
-Answer # In Jenkins, under the job configuration we can define various build triggers. Simple find the ‘Build Triggers’ section, and check the ‘ Build Periodically’ checkbox. With the periodically build you can schedule the build definition by the date or day of the week and the time to execute the build.
+Answer # In Jenkins, under the job configuration we can define various build triggers. Simple find the ‘Build Triggers’ section,
+and check the ‘ Build Periodically’ checkbox.
+With the periodically build you can schedule the build definition by the date or day of the week and the time to execute 
+the build.
 The format of the ‘Schedule’ textbox is as follows:
 MINUTE (0-59), HOUR (0-23), DAY (1-31), MONTH (1-12), DAY OF THE WEEK (0-7)
  
 Continuous Integration Interview Questions # 17) Why do we use Pipelines in Jenkins?
-Answer # Pipeline adds a powerful set of automation tools onto Jenkins, supporting use cases that span from simple continuous integration to comprehensive continuous delivery pipelines. By modeling a series of related tasks, users can take advantage of the many features of Pipeline:
-Code: Pipelines are implemented in code and typically checked into source control, giving teams the ability to edit, review, and iterate upon their delivery pipeline.
+Answer # Pipeline adds a powerful set of automation tools onto Jenkins, 
+supporting use cases that span from simple continuous integration to comprehensive continuous delivery pipelines.
+By modeling a series of related tasks, users can take advantage of the many features of Pipeline:
+Code: Pipelines are implemented in code and typically checked into source control, giving teams the ability to edit, 
+review, and iterate upon their delivery pipeline.
 Durable: Pipelines can survive both planned and unplanned restarts of the Jenkins master.
 Pausable: Pipelines can optionally stop and wait for human input or approval before continuing the Pipeline run.
 Versatile: Pipelines support complex real-world continuous delivery requirements, including the ability to fork/join, loop, and perform work in parallel.
@@ -158,21 +188,28 @@ Join
 Green Balls
  
 Interview Questions on Maven and Jenkins # 22) What are Jobs in Jenkins?
-Answer # Jenkins can be used to perform the typical build server work, such as doing continuous/official/nightly builds, run tests, or perform some repetitive batch tasks. This is called “free-style software project” in Jenkins.
+Answer # Jenkins can be used to perform the typical build server work, such as doing continuous/official/nightly builds, 
+run tests, or perform some repetitive batch tasks. This is called “free-style software project” in Jenkins.
  
 Jenkins Advanced Interview Questions # 23) How do you create a Job in Jenkins?
-Answer # Go to Jenkins top page, select “New Job”, then choose “Build a free-style software project”. This job type consists of the following elements:
+Answer # Go to Jenkins top page, select “New Job”, then choose “Build a free-style software project”. 
+This job type consists of the following elements:
 optional SCM, such as CVS or Subversion where your source code resides.
 optional triggers to control when Jenkins will perform builds.
-some sort of build script that performs the build (ant, maven, shell script, batch file, etc.) where the real work happens optional steps to collect information out of the build, such as archiving the artifacts and/or recording javadoc and test results.
+some sort of build script that performs the build (ant, maven, shell script, batch file, etc.) 
+where the real work happens optional steps to collect information out of the build, such as archiving the artifacts 
+and/or recording javadoc and test results.
 optional steps to notify other people/systems with the build result, such as sending e-mails, IMs, updating issue tracker, etc.
  
 Selenium Jenkins Interview Questions # 24) How do you configuring automatic builds in Jenkins?
-Answer # Builds in Jenkins can be triggered periodically (on a schedule, specified in configuration), or when source changes in the project have been detected, or they can be automatically triggered by requesting the URL:
+Answer # Builds in Jenkins can be triggered periodically (on a schedule, specified in configuration),
+or when source changes in the project have been detected, or they can be automatically triggered by requesting the URL:
 http://YOURHOST/jenkins/job/PROJECTNAME/build
  
 Jenkins CI Interview Questions And Answers # 25) How to create a backup and copy files in Jenkins?
-Answer # To create a backup, all you need to do is to periodically back up your JENKINS_HOME directory. This contains all of your build jobs configurations, your slave node configurations, and your build history. To create a back-up of your Jenkins setup, just copy this directory.
+Answer # To create a backup, all you need to do is to periodically back up your JENKINS_HOME directory.
+This contains all of your build jobs configurations, your slave node configurations, and your build history. 
+To create a back-up of your Jenkins setup, just copy this directory.
 Jenkins Real-Time Interview Questions
 
 26) What is the trustAnchors parameter must be non-empty error and how can you solve it?
