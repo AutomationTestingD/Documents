@@ -1,0 +1,68 @@
+**********************************************************************************************************
+Download File Using AutoIT In Selenium WebDriver
+**********************************************************************************************************
+
+AutoIt Script: 
+           ;wait for 8 seconds to appear download and save dialog. Used class property of download dialog.
+WinWait("[CLASS:#MozillaDialogClass]","",8)
+           ; Perform keyboard ALT key + s key to select Save File Radio button using keyboard shortcut.
+Send("!s")
+           ; Wait for 9 seconds
+Sleep(9000)
+           ; Press Keyboard ENTER button.
+Send("{ENTER}")
+
+
+AutoIt Script Explanation:
+Line 1 : WinWait(“[CLASS:#MozillaDialogClass]”,””,8)
+Wait for 8 seconds to appear download and save dialog. Used class property of download dialog.
+Line 2 : Send(“!s”)
+Perform keyboard ALT key down + s + ALT key Up action to select Save File Radio button using keyboard shortcut.
+Line 3 : Sleep(9000)
+Wait for 9 seconds
+Line 4: Send(“{ENTER}”)
+
+After that it downloads the document
+Step 3: Once the file is saved, we need to convert the ‘DownloadFile.au3’ to ‘DownloadFile.exe’. 
+To do this we need to compile the ‘DownloadFile.au3’
+
+Right click on the file ‘DownloadFile.au3’ and click on ‘Compile Script’ to generate an executable file ‘DownloadFile.exe’
+Step 4: In Eclipse, add the below mentioned Selenium Script and run
+Given clear explanation in the comments section with in the program itself. Please go through it to understand the flow.
+
+
+
+**********************************************************************************************************
+package softwareTestingMaterial;
+ 
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+ 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+ 
+public class FileDownloadAutoIt {
+ 
+ public static void main (String [] args) throws Exception{
+ WebDriver driver = new FirefoxDriver();
+ driver.manage().window().maximize();
+ driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+ //To open URL
+ driver.get("http://softwaretestingplace.blogspot.com/2015/10/sample-web-page-to-test.html");
+ //Download Text File
+ driver.findElement(By.xpath("//*[@id='post-body-5864649494765988891']/div[1]/form/div[1]/a[1]")).click();
+ //To call the AutoIt script
+ Runtime.getRuntime().exec("D:\\SoftwareTestingMaterial\\AutoIt\\DownloadFile.exe");
+ //'close' method is used to close the browser window
+ //driver.close();
+ }
+}
+**********************************************************************************************************
+
+In the above Selenium Script, we did call the AutoIt Script after clicking on the browser button which transfers 
+windows popup box and download the required file.
+
+Syntax:
+Runtime.getRuntime().exec("File Path of AutoIt.exe");
+**********************************************************************************************************
