@@ -1,0 +1,98 @@
+************************************************************************************************************
+Upload file in Selenium Webdriver using Robot Class
+************************************************************************************************************
+
+There are multiple ways to upload files in Selenium Webdriver
+
+1.You can directly use sendKeys(“File path”) method but sometime this methods does not work.
+
+        driver.findElement(By.id("uploadfile_0")).sendKeys("C:\\newhtml.html");
+
+2.We can use Robot class to upload files in Selenium
+
+
+
+Robot class is not part of Selenium it comes with Java but we can use the same here.We have to use 
+some keyboard event to perform this.
+Step 1- We have to copy the file location in system clipboard.
+Step 2- We have to click on upload button and use CTR+V and ENTER.
+Note- Robot class each key has to press and release respectively
+
+Scenario-
+1-Open Firefox and Create profile in monster.com
+2- Click on upload button and select the file and save
+Lets implement the same
+
+
+************************************************************************************************************
+Program-Upload file in Selenium Webdriver using Robot Class
+************************************************************************************************************
+
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.awt.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+ 
+public class FileUpload {
+ 
+@Test
+public void Fileupload() throws AWTException, InterruptedException{
+ 
+ 
+ WebDriver driver = new FirefoxDriver();
+  driver.manage().window().maximize();
+        
+  // Specify the file location with extension
+ StringSelection sel = new StringSelection("C:\\Users\\Desktop\\1.doc");
+ 
+   // Copy to clipboard
+ Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel,null);
+ System.out.println("selection" +sel);
+ 
+ driver.get("http://my.monsterindia.com/create_account.html");
+ Thread.sleep(2000);
+ 
+ // This will scroll down the page 
+ JavascriptExecutor js = (JavascriptExecutor)driver;
+ js.executeScript("scroll(0,350)");
+ 
+// Wait for 5 seconds
+ Thread.sleep(5000);
+ 
+// This will click on Browse button
+ driver.findElement(By.id("wordresume")).click();
+ 
+ 
+ 
+ System.out.println("Browse button clicked");
+ 
+ // Create object of Robot class
+ Robot robot = new Robot();
+ Thread.sleep(1000);
+      
+  // Press Enter
+ robot.keyPress(KeyEvent.VK_ENTER);
+ 
+// Release Enter
+ robot.keyRelease(KeyEvent.VK_ENTER);
+ 
+  // Press CTRL+V
+ robot.keyPress(KeyEvent.VK_CONTROL);
+ robot.keyPress(KeyEvent.VK_V);
+ 
+// Release CTRL+V
+ robot.keyRelease(KeyEvent.VK_CONTROL);
+ robot.keyRelease(KeyEvent.VK_V);
+ Thread.sleep(1000);
+        
+// Press Enter 
+ robot.keyPress(KeyEvent.VK_ENTER);
+ robot.keyRelease(KeyEvent.VK_ENTER);
+ 
+}
+}
+************************************************************************************************************
