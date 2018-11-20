@@ -2,6 +2,8 @@
 
 This repository provide documents of below technologies
 
+AutoIT
+
 Java
 
 Selenium
