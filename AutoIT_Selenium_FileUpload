@@ -1,0 +1,105 @@
+*****************************************************************************************
+Introduction to AutoIT tool
+*****************************************************************************************
+
+1-AutoIt is freeware automation tool that can work with desktop application too.
+2-It uses a combination of keystrokes, mouse movement and window/control manipulation in order to automate tasks in a way not 
+possible or reliable with other languages (e.g. VBScript and SendKeys).
+
+How to write a script in AutoIT?
+
+For AutoIt scripting, you should have three things ready.
+1-AutoIt Editor- Editor helps us to write AutoIt scripts.
+2-Tool Finder (Same as firebug on Firefox) – It will help us to identify the element and check their Attributes.
+3- AutoIt Help section- This help you to understand about AutoIt functions and what are the parameter it accepts.
+
+Let’s start with Downloading first
+Step 1– Navigate to AutoIt  official website  https://www.autoitscript.com/site/autoit/downloads/  and go to download section or 
+Click here Download AutoIt
+Step 2– Click on Download AutoIt and Install
+Step 3–  Click on Download Editor and Install.
+Step 4– Once both installed in your machine check all is installed correctly.
+Note- Generally it goes to C:\Program Files\AutoIt3 location if you do not change it
+Step5– Open SCiTE folder and  Click on SciTE this will open AutoIt Editor
+
+
+*****************************************************************************************
+Upload File in Selenium Webdriver using Autoit
+*****************************************************************************************
+
+To Upload File in Selenium Webdriver using Autoit we need to take care of some steps so let’s begin
+To upload a file in Selenium Webdriver we will create AutoIT script, which will handle file-uploaded window, and then we will combine 
+Selenium script with AutoIt scripts.
+
+Click on Upload button you will get file uploader we will handle the same using AutoIt.
+ 
+Step 1- Open Editor and Finder Tool
+Step 2– We need to write script to upload file so we will use some method of AutoIt.
+Each method will have some own functionality
+ControlFocus-This will give focus on the window
+ControlSetText-This will set the file path
+ControlClick-This will click on button
+
+
+Step 1- 
+Click on Browse button , a new window will open now open finder tool and Click on Finder tool and drag to the file name.
+(file name textbox 
+from browse window)
+
+This will give all the detail about that window and file name section info; we will use only some attribute like window title, 
+class, and instance.
+Open AutoIt Editor and Write Script
+
+Script:
+ControlFocus("File Upload", "","Edit1")  //comment: Edit1 is control id - This is combination of Class+Instance. 
+File Upload is window Title
+ControlSetText("File Upload","","Edit1","filePath")
+ControlClick("File Upload", "", "Button1")
+
+In ControlClick method we will give control id of open button
+Step 2-
+Save the script to a particular location with some unique name.
+Note- By default script will be saved as .au3 extension
+
+Step 3– Now Compile the script so for compiling right click on file and Select compile script this will generate a .exe file 
+of the file.
+
+Step 4- Now write Selenium program and add this .exe file and run your program
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+package demo;
+ 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+ 
+public class DemoFileUpload {
+ 
+ public static void main(String[] args) throws Exception {
+                
+// This will open Firefox browser
+WebDriver driver=new FirefoxDriver();
+        
+// This will maximize browser to full screen
+driver.manage().window().maximize();
+        
+// This will open respective URL
+driver.get("your application url");
+        
+// This will click on Upload button
+driver.findElement(By.xpath("//*[@type='file']")).click();
+     
+// This will invoke AutoIT script here give the path of the script 
+//and this will throw IO exception so u can use throw or try catch
+// In my case I am using throws
+ 
+Runtime.getRuntime().exec("C:\\Users\\mukesh_otwani\\Desktop\\AutoItScripts\\blogUpload.exe");
+ 
+// Once you will run this program AutoIt script will be invoked and respective f//ile will be attached
+  
+}}
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Reference: http://learn-automation.com/upload-file-in-selenium-webdriver-using-autoit/
