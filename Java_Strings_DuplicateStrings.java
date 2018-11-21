@@ -19,7 +19,7 @@ public class DuplicateStrings {
 		
 			String[] str = string.split(" ");
 		
-			HashMap<String, Integer> Hm = new HashMap<>();
+			HashMap<String, Integer> Hm = new HashMap<String, Integer>();
 		
 			for(String tempstring : str) {
 			
