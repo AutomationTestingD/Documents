@@ -1,0 +1,125 @@
+Q1. What is Log4j?
+Log4j is a fast, flexible and reliable logging framework written in Java developed in early 1996.
+It is distributed under the Apache software license and can be used for small to large scale projects. 
+It has been ported to the languages like C, C++, C#, Python, etc.
+
+Q2. What are the components of log4j?
+1. Logger: It is used to log the messages.
+2. Appender: It is used to publish the logging information to the destination like file, database, console etc.
+3. Layout: It is used to format logging information in different styles.
+
+Q3. What are the different logging levels?
+
+There are several logging levels that you can configure in you applicaiton
+Those are FATAL,ERROR,WARN,TRACE,DEBUG,INFO OR ALL in apache logging. Default logging level is INFO.
+
+Q4. What is purpose of DEBUG log level?
+DEBUG − Designates fine-grained informational events that are most useful to debug an application.
+
+Q5. Why to use Log4j?
+
+Being open-source its completely free to use.
+You can easily save log information into either files or even databases.
+Can be used for projects of any sizes small or large.
+Q6. What are the features of log4j?
+Following are features of log4j −
+
+It is thread-safe.
+It is optimized for speed.
+It is based on a named logger hierarchy.
+It supports multiple output appenders per logger.
+It supports internationalization.
+It is not restricted to a predefined set of facilities.
+Logging behavior can be set at runtime using a configuration file.
+It is designed to handle Java Exceptions from the start.
+It uses multiple levels, namely ALL, TRACE, DEBUG, INFO, WARN, ERROR and FATAL.
+The format of the log output can be easily changed by extending the Layout class.
+The target of the log output as well as the writing strategy can be altered by implementations of the Appender interface.
+It is fail-stop. However, although it certainly strives to ensure delivery, log4j does not guarantee that each 
+log statement will be delivered to its destination.
+Q7. What are Pros and Cons of Logging?
+Following are the Pros and Cons of Logging −
+Logging is an important component of the software development. A well-written logging code offers quick debugging, easy maintenance,
+and structured storage of an application’s runtime information.
+Logging does have its drawbacks also. It can slow down an application. If too verbose, it can cause scrolling blindness.
+To alleviate these concerns, log4j is designed to be reliable, fast and extensible.
+Since logging is rarely the main focus of an application, the log4j API strives to be simple to understand and to use.
+
+Q8. What are different types of logs?
+Usually in any application there two types of logs
+
+Application server logs :- These are the logs configured at the application server level. for example in tomcat,
+we have log files called localhost.log. tomcat.log,catalina.log, stdout.log, sterr.log. all these logs are showing with default 
+settings defined in logging.properites located in your tomcat installation folder/conf folder.
+if you want custom settings, we have to change the different parameters in logging.properties in conf folder of tomcat directory.
+Application logs:- We can define logging at each applicaiton level, For this we have to create log4j.xml or logging.properties 
+in WEB-INF/classes folder.
+Q9. How do Levels Works?
+A log request of level p in a logger with level q is enabled if p >= q. This rule is at the heart of log4j.
+It assumes that levels are ordered. For the standard levels, we have ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF.
+
+Q10. What is purpose of ERROR log level?
+ERROR − Designates error events that might still allow the application to continue running.
+
+Q11. What is purpose of FATAL log level?
+FATAL − Designates very severe error events that will presumably lead the application to abort.
+
+Q12. What is purpose of INFO log level?
+INFO − Designates informational messages that highlight the progress of the application at coarse-grained level.
+
+Q13. What is purpose of OFF log level?
+OFF − The highest possible rank and is intended to turn off logging.
+
+Q14. What is purpose of TRACE log level?
+TRACE − Designates finer-grained informational events than the DEBUG.
+
+Q15. What is purpose of WARN log level?
+WARN − Designates potentially harmful situations.
+
+Q16. Mention what is the best way to migrate from java.util logging to log4j?
+The best way to migrate from java.util logged to log4j is to use global file search/replace method.
+It will replace with “org.apache.log4j.Logger”
+
+Q17. Mention what are the two static methods for obtaining a logger object?
+The two static methods for obtaining a logger object are
+
+Public static Logger getRootLogger()
+Public static Logger getLogger(String name)
+Q18. What is the purpose of Appender object?
+Appender Object − This is a lower-level layer of log4j architecture which provides Appender objects. 
+The Appender object is responsible for publishing logging information to various preferred destinations such as a database, file,
+console, UNIX Syslog, etc.
+
+Q19. What is the purpose of ObjectRenderer object?
+ObjectRenderer − The ObjectRenderer object is specialized in providing a String representation of different objects passed
+to the logging framework. This object is used by Layout objects to prepare the final logging information.
+
+Q20. How will you create a logger in any class?
+Any other named Logger object instance is obtained through the second method by passing the name of the logger.
+The name of the logger can be any string you can pass, usually a class or a package name as we have used in the last
+chapter and it is mentioned below −
+
+static Logger log = Logger.getLogger(log4jExample.class.getName());
+
+Q21. How will you define a root logger turning DEBUG mode off?
+Following syntax defines the root logger with WARN mode turning DEBUG mode off.
+
+# Define the root logger with appender file log = /usr/home/log4j log4j.rootLogger = WARN, FILE
+
+Q22. What is the purpose of c character used in the conversionPattern of PatternLayout object?
+c − Used to output the category of the logging event. For example, for the category name “a.b.c” the pattern %c{2} will output “b.c”.
+
+Q23. Explain what are the format characters used in log4j?
+The format characters used in log4j are
+
+L- it is used to output the line number from where the logging request was processed or issued
+m- It is used to output the application supplied message related with the logging event
+p-It is used to output the priority of the logging event
+C- It is used to output the class name of the caller issuing the logging request
+Q24. How log4j file is defined?
+Log4j file is defined by the name log4j.properties, it keeps properties in key-value pairs. By default, 
+the log manager looks for a file name log4j.properties in the CLASSPATH.
+
+Q25. Mention what is the difference between Threshold and LevelRangeFilter in log4j?
+Both Threshold and LevelRangeFilter does the same thing. However threshold should be faster. Filters enable you to implement your own logic, and you can also link them together if required.
+If you need a basic threshold functionality, then “threshold” function will be enough.
