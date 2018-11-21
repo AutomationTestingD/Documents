@@ -668,3 +668,19 @@ The advantages of Using Git Hub for Selenium are
 
 Multiple people when they work on the same project they can update project details and inform other team members simultaneously.
 Jenkins can help you to build the project from the remote repository regularly. This helps you to keep track of failed builds.
+
+
+
+*****************************************************************************************************************************
+To scroll down the web page by the visibility of the element
+*****************************************************************************************************************************
+
+WebElement Element = driver.findElement(By.linkText("LinkedIn"));
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("arguments[0].scrollIntoView();", Element);
+//or simly by below single line
+//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", Element);
+
+//To scroll down the web page by pixel ------> js.executeScript("window.scrollBy(0,1000)");
+
+
