@@ -1,7 +1,6 @@
 In Real Time flow of project: Devloper  -> Git -> Jenkins  -> Maven - Tomcat server (.war file)
 
 
-
 Developer develop the code, commit changes and push to Git.
 
 In Jenkins using Maven compile, test and package will be done Automatically.
