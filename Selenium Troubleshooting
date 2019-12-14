@@ -41,7 +41,7 @@ Troublshooting
 
 
 3.Exception:
-  Problem: Not listing dropdown elements in Mywipro Stationary application while selecting stationary Items
+  Problem: Not listing dropdown elements in  Stationary application while selecting stationary Items
   
   Script:
   <select class="custom-dropdown__select custom-dropdown__select--red" data-role="none" id="selMaterialLst"
