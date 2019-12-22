@@ -18,14 +18,12 @@ Git
 
 Log4J
 
+Extent Reports
+
 Apache POI
 
-SQL Server
+SQL 
 
-Testing
+SoupUI and RestAssured WebServices  - API Automation
 
-SoupUI and Rest WebServices
-
-
-
-
+Pending Documentaion: JavaScript, ETL Testing, Robotic Process Automation, Appium(Mobile Testing), Cucumber, ReactJS.
