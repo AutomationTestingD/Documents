@@ -1,0 +1,756 @@
+
+SQL DOCUMENTATION:
+-----------------
+
+
+
+COMMENTING IN SQL:
+------------------
+
+Single lin comment:   -- 
+Multi-line comment: /* */
+
+
+SELECT : 
+--------
+
+The SELECT statement is used to select data from a database.
+
+SELECT * FROM Customers;
+
+SELECT CustomerName, City FROM Customers;
+
+
+
+
+DISTINCT:
+--------
+
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+
+SELECT DISTINCT Country FROM Customers;
+
+SELECT COUNT(DISTINCT Country) FROM Customers;
+
+
+
+WHERE:
+------
+
+The WHERE clause is used to filter records.
+
+The WHERE clause is used to extract only those records that fulfill a specified condition.
+
+SELECT * FROM Customers
+WHERE Country='Mexico'; 
+
+OPERATOR:
+
+=(Equal), 
+
+>(Greater than),
+
+<(Less than), 
+
+>= (Greater than or equal),
+
+<= (Less than or equal), 
+
+<> (Not equal, SOMETIMES !=), 
+
+BETWEEN, 
+
+LIKE (Search for a pattern), 
+
+IN;
+
+
+The WHERE clause can be combined with AND, OR, and NOT operators.
+
+SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+
+SELECT * FROM Customers
+WHERE NOT Country='Germany';
+
+
+
+ORDER BY:
+---------
+
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
+
+SELECT * FROM Customers
+ORDER BY Country;
+
+SELECT * FROM Customers
+ORDER BY Country DESC; 
+
+
+
+INSERT INTO:
+------------
+
+The INSERT INTO statement is used to insert new records in a table.
+
+FOR ALL VALUES:
+
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+
+FOR SPECIFIED VALUES:
+
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+
+
+Null Values:  - IS NULL || IS NOT NULL
+--------------------------------------
+
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NULL;
+
+SELECT CustomerName, ContactName, Address 
+FROM Customers
+WHERE Address IS NOT NULL;
+
+
+
+
+UPDATE:
+-------
+
+The UPDATE statement is used to modify the existing records in a table.
+Be careful when updating records. If you omit the WHERE clause, ALL records will be updated!
+
+
+SINGLE RECORD:
+
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
+
+MULTIPLE RECORDS:
+
+UPDATE Customers
+SET ContactName='Juan'
+WHERE Country='Mexico';
+
+
+
+DELETE:
+-------
+
+The DELETE statement is used to delete existing records in a table.
+
+SINGLE RECORD:
+
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+DELETE ALL RECORDS:
+
+DELETE FROM table_name;
+
+
+
+SQL TOP, LIMIT or ROWNUM Clause:
+--------------------------------
+
+The SELECT TOP clause is used to specify the number of records to return.
+The SELECT TOP clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.
+
+
+SELECT TOP 3 * FROM Customers;   -- RETURNS first three records from the "Customers" table.
+
+SELECT TOP 50 PERCENT * FROM Customers;  -- selects the first 50% of the records from the "Customers" table.
+
+SELECT TOP 3 * FROM Customers
+WHERE Country='Germany';              -- selects the first three records from the "Customers" table, where the country is "Germany"
+
+
+SELECT * FROM Customers LIMIT 3;   -- Limits the records to the given integer.
+
+SELECT * FROM Customers
+WHERE Country='Germany'  LIMIT 3; 
+
+
+SELECT * FROM Customers
+WHERE ROWNUM <= 3;
+
+
+
+SQL MIN() and MAX() Functions:
+------------------------------
+
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+SELECT MAX(Price) AS LargestPrice
+FROM Products; 
+
+
+SQL COUNT(), AVG() and SUM() Functions:
+---------------------------------------
+
+The COUNT() function returns the number of rows that matches a specified criteria.
+
+SELECT COUNT(ProductID)
+FROM Products;
+
+
+The AVG() function returns the average value of a numeric column.
+
+SELECT AVG(Price)
+FROM Products;
+
+
+The SUM() function returns the total sum of a numeric column.
+
+SELECT SUM(Quantity)
+FROM OrderDetails; 
+
+
+
+LIKE Operator:
+---------------
+
+The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+There are two wildcards often used in conjunction with the LIKE operator:
+
+% - The percent sign represents zero, one, or multiple characters
+
+_ - The underscore represents a single character
+
+
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a%';    --  selects all customers with a CustomerName starting with "a"
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%a';    --  selects all customers with a CustomerName ending with "a".
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%or%';  -- selects all customers with a CustomerName that have "or" in any position
+
+
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE '_r%';    -- selects all customers with a CustomerName that have "r" in the second position
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a__%';   -- selects all customers with a CustomerName that starts with "a" and are at least 3 characters in length:
+
+SELECT * FROM Customers
+WHERE ContactName LIKE 'a%o';   -- selects all customers with a ContactName that starts with "a" and ends with "o":
+
+SELECT * FROM Customers
+WHERE CustomerName NOT LIKE 'a%';   -- selects all customers with a CustomerName that does NOT start with "a"
+
+
+
+
+select all customers with a City NOT starting with "b", "s", or "p":
+
+SELECT * FROM Customers
+WHERE City NOT LIKE '[bsp]%';  
+
+SELECT * FROM Customers
+WHERE City LIKE '[!bsp]%'; 
+
+
+Using the [charlist] Wildcard:   []
+------------------------------------
+
+selects all customers with a City starting with "a", "b", or "c":
+
+SELECT * FROM Customers
+WHERE City LIKE '[a-c]%';
+
+
+selects all customers with a City starting with "b", "s", or "p":
+
+SELECT * FROM Customers
+WHERE City LIKE '[bsp]%';
+
+
+
+IN Operator:
+------------
+
+The IN operator allows you to specify multiple values in a WHERE clause.
+
+
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+
+SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');
+
+
+SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);
+
+
+
+
+BETWEEN Operator:
+-----------------
+
+The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;	
+
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND NOT CategoryID IN (1,2,3);
+
+
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+
+
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN #01/07/1996# AND #31/07/1996#;
+
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+
+
+
+Aliases:
+--------
+
+SQL aliases are used to give a table, or a column in a table, a temporary name. An alias only exists for the duration of the query.
+
+SELECT CustomerID AS ID, CustomerName AS Customer
+FROM Customers; 
+
+query:
+SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
+FROM Customers;
+
+output:
+CustomerName                     Address
+Alfreds Futterkiste              Obere Str. 57, 12209 Berlin, Germany
+
+
+
+JOINS:
+-----
+
+INNER JOIN:
+-----------
+
+selects records that have matching values in both tables.
+
+
+TWO TABLES:
+
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID; 
+
+
+THREE TABLE:
+
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID); 
+
+
+
+LEFT JOIN:
+---------
+
+returns all records from the left table (table1), and the matched records from the right table (table2).
+The result is NULL from the right side, if there is no match.
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+
+RIGHT JOIN:
+-----------
+returns all records from the right table (table2), and the matched records from the left table (table1). 
+The result is NULL from the left side, when there is no match
+
+
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID; 
+
+
+FULL OUTER JOIN / FULL JOIN:
+----------------------------
+
+returns all records when there is a match in left (table1) or right (table2) table records.
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+
+SELF JOIN:
+----------
+
+A self JOIN is a regular join, but the table is joined with itself.
+
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City 
+ORDER BY A.City;
+
+
+The SQL UNION Operator:
+------------------------
+
+The UNION operator is used to combine the result-set of two or more SELECT statements.
+
+Each SELECT statement within UNION must have the same number of columns
+The columns must also have similar data types
+The columns in each SELECT statement must also be in the same order
+
+
+SELECT City FROM Customers
+UNION
+SELECT City FROM Suppliers
+ORDER BY City;
+
+
+SELECT City FROM Customers
+UNION ALL                            -- DULPICATE VAILUES ALSO INCLUDES
+SELECT City FROM Suppliers
+ORDER BY City;
+
+
+SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION ALL
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;
+
+
+
+GROUP BY:
+----------
+
+The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country".
+The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;                        --  lists the number of customers in each country
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;         -- lists the number of customers in each country, sorted high to low
+
+
+USING LEFT JOIN WITH GROUP BY:
+
+SELECT Shippers.ShipperName,COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+GROUP BY ShipperName;
+
+
+
+HAVING CLAUSE:
+--------------
+The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM (Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID)
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) > 10
+
+
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+WHERE LastName = 'Davolio' OR LastName = 'Fuller'
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) > 25;
+
+
+
+EXISTS:    (BOOLEAN)
+-------
+
+The EXISTS operator is used to test for the existence of any record in a subquery.
+
+
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20); 
+
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+
+
+ANY or ALL:       (BOOLEAN)
+-----------
+The ANY and ALL operators are used with a WHERE or HAVING clause.
+The ANY operator returns true if any of the subquery values meet the condition.
+The ALL operator returns true if all of the subquery values meet the condition.
+
+
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10); 
+
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ALL (SELECT ProductID FROM OrderDetails WHERE Quantity = 10); 
+
+
+
+SELECT INTO Statement:
+----------------------
+
+The SELECT INTO statement copies data from one table into a new table.
+
+
+SELECT CustomerName, ContactName INTO CustomersBackup2017
+FROM Customers; 
+
+SELECT * INTO CustomersBackup2017
+FROM Customers;                                            -- copy all feilds into a new table.
+
+SELECT * INTO CustomersBackup2017 IN 'Backup.mdb'
+FROM Customers;                                            --  copy the table into a new table in another database
+
+
+SELECT Customers.CustomerName, Orders.OrderID
+INTO CustomersOrderBackup2017
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;        -- copy from more than one table into new table
+
+
+INSERT INTO SELECT:
+-------------------
+
+INSERT INTO SELECT statement copies data from one table and inserts it into another table.
+
+INSERT INTO Customers (CustomerName, City, Country)
+SELECT SupplierName, City, Country FROM Suppliers;
+
+
+INSERT INTO Customers (CustomerName, City, Country)
+SELECT SupplierName, City, Country FROM Suppliers
+WHERE Country='Germany';
+
+
+
+CASE Statement:
+----------------
+
+The CASE statement goes through conditions and returns a value when the first condition is met (like an IF-THEN-ELSE statement). 
+So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause. 
+
+
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN "The quantity is greater than 30"
+    WHEN Quantity = 30 THEN "The quantity is 30"
+    ELSE "The quantity is under 30"
+END AS QuantityText
+FROM OrderDetails; 
+
+
+SELECT CustomerName, City, Country
+FROM Customers
+ORDER BY
+(CASE
+    WHEN City IS NULL THEN Country
+    ELSE City
+END); 
+
+
+
+NULL function:
+--------------
+
+SELECT ProductName, UnitPrice * (UnitsInStock + ISNULL(UnitsOnOrder, 0))
+FROM Products; 
+
+
+
+
+STORED PROCEDURE:
+-----------------
+
+What is a Stored Procedure?
+
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+
+You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+
+
+
+CREATE PROCEDURE SelectAllCustomers
+AS
+SELECT * FROM Customers                                          -- to execute we use EXEC SelectAllCustomers;
+GO;
+
+
+
+CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
+AS
+SELECT * FROM Customers WHERE City = @City                       -- EXEC SelectAllCustomers @City = "London"; 
+GO;
+
+
+CREATE PROCEDURE SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)
+AS
+SELECT * FROM Customers WHERE City = @City AND PostalCode = @PostalCode 
+GO;
+
+EXEC SelectAllCustomers @City = "London", @PostalCode = "WA1 1DP"; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
