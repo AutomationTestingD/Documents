@@ -26,4 +26,4 @@ SQL
 
 SoupUI and RestAssured WebServices  - API Automation
 
-Pending Documentaion: JavaScript, ETL Testing, Robotic Process Automation, Appium(Mobile Testing), Cucumber, ReactJS.
+Pending Documentaion: JavaScript, ETL Testing, Robotic Process Automation, Appium(Mobile Testing), Cucumber, ReactJS, AWS/AZURE.
